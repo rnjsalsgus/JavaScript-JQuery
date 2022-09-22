@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if</title>
+
+    <script>
+        // if 조건문
+        // -> 1. if(조건1){
+        //         조건1이 참일 때 실행되는 실행문
+        //     };
+    
+        // -> 2. if(조건1){
+        //         조건1이 참일 때 실행되는 실행문
+        //     }
+        //     else{
+        //         조건1이 거짓일 때 실행되는 실행문
+        //     }   
+
+        // -> 3. if(조건1){
+        //         조건1이 참일 때 실행되는 실행문
+        //     }
+        //     else if(조건2,3,4,5...){
+        //         조건2,3,4,5,...가 참일 때 실행되는 실행문
+        //     }
+        //     else{
+        //         모든 if가 거짓일 때 실행되는 실행문
+        //     }   
+
+        // var a = 5;
+        // var b = 3;
+
+        // if(a>b){
+        //     document.write("a가 b보다 크다");
+        // }
+        // else if(a<b){
+        //     document.write("a가 b보다 작다");
+        // }
+        // else{
+        //     document.write("a와 b가 같다");
+        // }
+
+        //문제
+        // 1. 두 수 입력 받기
+        // 2. 두 수 비교
+        // 3. 첫번째 수가 크면 '첫번째 수가 큽니다' 출력
+        // 4. 두번째 수가 크면 '두번째 수가 큽니다' 출력
+        // 5. 두 수가 같으면 '두 수는 같습니다' 출력
+        // 6. 수가 아닌 문자가 입력되면 '숫자를 입력해주세요' 출력
+
+        // var a = Number(prompt("첫번째 수",""));
+        // var b = Number(prompt("두번째 수",""));
+
+        // document.write("첫번째 수 : ",a,", 두번째 수 : ",b,"<br>");
+        // if(a>b){
+        //     document.write("첫번째 수가 큽니다");
+        // }
+        // else if(a<b){
+        //     document.write("두번째 수가 큽니다");
+        // }
+        // else if(a==b){
+        //     document.write("두 수가 같습니다");
+        // }
+        // else{
+        //     document.write("숫자를 입력해주세요");
+        // }
+
+        // and -> &&, or-> ||
+        // a<b<c -> 수학적 표기
+
+        var a = 1;
+        var b = 2;
+        var c = 3;
+        // document.write(a<b<c);
+        // document.write(a<b && a<c,"<br>"); //참참 -> 참
+        // document.write(a>b && a<c,"<br>"); //거짓참 -> 거짓
+        // document.write(a<b && a>c,"<br>"); //참거짓 -> 거짓
+        // document.write(a>b && a>c,"<br>"); //거짓거짓 -> 거짓
+
+        // document.write(a<b || a<c,"<br>"); //참참 -> 참
+        // document.write(a>b || a<c,"<br>"); //거짓참 -> 참
+        // document.write(a<b || a>c,"<br>"); //참거짓 -> 참
+        // document.write(a>b || a>c,"<br>"); //거짓거짓 -> 거짓
+
+        //문제
+        // 1. 나이 입력 받기
+        // 2. 0~13세 까지는 소인
+        // 3. 14~19세 까지는 청소년
+        // 4. 20~100세 까지는 성인
+        // 5. 20~30세 까지는 성인이면서 독신
+        // 6. 100세 이상의 나이는 다시 입력해주세요
+        
+        var age = Number(prompt("나이를 입력해주세요",""));
+
+        document.write("입력한 나이 : ",age,"<br>");
+
+        if(age>=0 && age<14){
+            document.write("소인입니다");
+        }
+        else if(age>=14 && age<20){
+            document.write("청소년입니다");
+        }
+        else if(age>=20 && age<=100){
+            if(age>30){
+                document.write("성인입니다");
+            }
+            else{
+                document.write("성인이면서 독신입니다");
+            }
+        }
+        else{
+            document.write("나이를 다시 입력해주세요");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
