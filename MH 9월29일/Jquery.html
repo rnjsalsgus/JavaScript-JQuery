@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.6.1.js"></script>
+    <script>
+        // $(선택자) -> 선택자 : 태그, 클래스, 아이디
+        $(document).ready(function(){
+            // 태그선택자
+            // 복합속성(주로 사용)
+            // $("ul").css({
+            //     color:"#ff0000",
+            //     background:"yellow"
+            // });
+
+            // //단독속성
+            // // $("ul").css("color","#0000ff");
+
+            // $(".li_1").css({
+            //     color:"#00ffff",
+            //     background:"#ff00ff"
+            // })
+
+            // 사각형 그리기
+            // 1. 가로 세로 300
+            // 2. 배경색 노란색
+
+            $("div").css({
+                width: 300,
+                height: 300,
+                background:"yellow",
+                fontSize:20,
+                textAlign:"center"
+            })
+        });
+    </script>
+
+</head>
+<body>
+    <!-- <ul>
+        <li>태그선택자</li>
+        <li class="li_1">클래스선택자</li>
+        <li id="li_2">아이디선택자</li>
+    </ul> -->
+    <div>사각형</div>
+</body>
+</html>
