@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        
+        /* #out_box{
+            width: 700px;
+            height: 700px;
+            background-color: aqua;
+            margin: 50px auto;
+            
+        }
+        .in_box{
+            width: 250px;
+            height: 250px;
+            float: left;         
+        }
+        #inbox_1{
+            background-color: yellow; 
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+        #inbox_2{
+            background-color: blue;
+            margin-top: 50px;
+            margin-left: 100px;
+            
+        }
+        #inbox_3{
+            background-color: green;
+            margin-top: 100px;
+            margin-left: 50px;
+            
+        }
+        #inbox_4{
+            background-color: pink;
+            margin-top: 100px;
+            margin-left: 100px;
+            
+        } */
+        /* inbox의 위치를 absolute로 정의했을 때 */
+        /* #inbox_1{
+            background-color: yellow;
+            margin: 50px 100px 100px 50px
+        }
+        #inbox_2{
+            background-color: blue;
+            margin: 50px 400px
+        }
+        #inbox_3{
+            background-color: green;
+            margin-top: 400px;
+            margin-left: 50px;
+
+        }
+        #inbox_4{
+            background-color: pink;
+            margin-top: 400px;
+            margin-left: 400px;
+        } */
+           </style>
+            <script src="../jquery-3.6.1.js"></script>
+            <script>
+                $(document).ready(function(){
+                    $("#out_box").css({
+                        width: 700,
+                        height: 700,
+                        background: "aqua",
+                        margin: "50px auto"
+                        
+                    });
+                    $(".in_box").css({
+                        width: 250,
+                        height: 250,
+                        float: "left"
+                    });
+                    // $("#inbox_1").css({
+
+                    // });
+                    $(".in_box").eq(0).css({
+                        // background: "yellow",
+                        marginTop: 50,
+                        marginLeft: 50,
+                        background: "url(img/cat1.jpg)",
+                        backgroundRepeat: "no-repeat"
+                        
+                    })
+                    $(".in_box").eq(1).css({
+                        // background: "blue",
+                        marginTop: 50,
+                        marginLeft: 100
+                    })
+                    $(".in_box").eq(2).css({
+                        // background:"green",
+                        marginTop: 100,
+                        marginLeft: 50
+                    })
+                    $(".in_box").eq(3).css({
+                        // background: "pink",
+                        marginTop: 100,
+                        marginLeft: 100
+                    })
+                    // 1. in_box에 마우스를 올리면 배경색 변경
+                    // $(".in_box").mouseenter(function(){
+                    //     $(this).css({
+                    //         background: "orange"
+                    //     })
+                    // }).mouseleave(function(){
+                    //     $("#inbox_1").css({
+                    //         background:"yellow"
+                    //     })
+                    //     $("#inbox_2").css({
+                    //         background:"blue"
+                    //     })
+                    //     $("#inbox_3").css({
+                    //         background:"green"
+                    //     })
+                    //     $("#inbox_4").css({
+                    //         background:"pink"
+                    //     })
+                    // })
+                    // $(".in_box").on({
+                    //     mouseenter:function(){},
+                    //     mouseleave:function(){}
+                    // })
+                    // $(".in_box").hover(function(){
+                    //     $(this).css({
+                    //         backgroundColor: "purple"
+                    //     })
+                    // },function(){
+                    //     $(this).css({
+                    //         backgroundColor: "red"
+                    //     })
+                    // })
+
+                    //2. in_box를 클릭하면 이미지가 바뀌게 만들기
+                    // -> 이미지를 배경 삽입
+                    // css:background
+                    var click=0;
+                    $(".in_box").click(function(){
+                        $(this).css({
+                            background:"url(img/cat2.jpg)",
+                            backgroundRepeat: "no-repeat"
+                        })
+                    })
+                    // -> 이미지를 내용 삽입
+                    // img 태그 : src 변경
+                    // $(".in_box").click(function(){
+                        // $(this).attr("src","img/cat2.jpg") -> X
+                        // $("img",this).attr("src","img/cat2.jpg")
+                        // -> 실제 클릭한 부모 선택자 안에 있는 자식 선택 방법
+                        // -> 클릭한 in_box 안에 있는 img 태그에게 src 속성 변경
+                        // $(this).find("img").attr("src","img/cat2.jpg")
+                        // find(선택할 선택자)
+                        // -> 특정 태그를 선택함
+                        // -> 클릭한 in_box안에 img 태그를 찾아서 attr 지정
+                    // })             
+                    // 3. 첫번째 클릭일 때 이미지변경
+                    //    두번째 클릭일 때 원 이미지 복구
+                    var click = 0;
+                    $(".in_box").on({
+                        click:function(){
+                            if(click==0){
+                                $(this).find("img").attr("src","img/cat2.jpg")
+                                click++;
+                            }
+                            else if(click==1){
+                                $(this).find("img").attr("src","img/cat1.jpg")
+                                click=0;
+                        }
+                        }
+                    
+                        // click:function(){
+                        //     $(this).find("img").attr("src","img/cat1.jpg")
+                        // }
+                        
+                    })
+
+                });//끝
+            </script>
+</head>
+<body>
+    <div id="out_box">
+        <div class="in_box" id="inbox_1">
+            <!-- <img src="img/cat1.jpg" alt=""> -->
+        </div>
+        <div class="in_box" id="inbox_2">
+            <img src="img/cat1.jpg" alt="">
+        </div>
+        <div class="in_box" id="inbox_3">
+            <img src="img/cat1.jpg" alt="">
+        </div>
+        <div class="in_box" id="inbox_4">
+            <img src="img/cat1.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>
