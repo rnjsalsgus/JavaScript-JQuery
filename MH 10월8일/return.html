@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>return</title>
+    <style>
+        /* div{
+            width: 200px;
+            height: 200px;
+            border: 10px solid black;
+            float: left;
+        } */
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        /* ul{
+            width: 750px;
+            height: 150px;
+            border: 10px solid black;
+            margin: 100px auto;
+        }
+        li{
+            width: 100px;
+            height: 100px;
+            margin: 25px;
+            float: left;
+            font-size: 50px; 
+        } */
+
+        /* ul{
+            width: 300px;
+            height: 300px;
+            border: 10px solid black;
+            position: relative;
+        }
+        li{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 100px;
+            text-align: center;
+        } */
+        #out_box{
+            width: 400px;
+            height: 400px;
+            background-color: aqua;
+            padding: 100px;
+            margin: 100px auto;
+        }
+        #in_box{
+            width: 100%;
+            height: 100%;
+            background-color: red;
+        }
+        ul{
+            width: 1000px;
+            height: 200px;
+            margin: 100px auto;
+            border: 5px solid black;
+        }
+        li{
+            width: 200px;
+            height: 100%;
+            float: left;
+            font-size: 50px;
+            text-align: center;
+        }
+    </style>
+    <script src="../jquery-3.6.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            //함수의 리턴
+            // var bg=["red","yellow","blue","green","pink"];
+            // for(i=0;i<5;i++){
+            //     $("div").css({
+            //         background: bg[i]
+            //     })
+            // }
+
+            // css의 속성값으로 함수를 활용해서 index값에 순서값 지정
+            // -> index값을 매개변수로 지정하면 자동으로 순차삽입
+            // $(선택자).css("단일속성","단일속성값");
+            // $(선택자).css({
+            //     다중속성 : 속성값,
+            //     다중속성 : 속성값....
+            // })
+            // 속성값에 매개변수를 index로 하는 함수를 지정하면 
+            // 배열의 위치 값을 순차적으로 활용가능함
+
+            // $("div").css({
+            //     background: function(index){
+            //         // 결과값 -> 배열의 순차값
+            //         return bg[index];
+            //     }
+            // })
+            // $("li").css({
+            //     background:function(index){
+            //         return bg[index]
+            //     }
+            // })
+
+            // 객체삽입
+
+            // before()
+            // prepend()
+            // 대상 -> 기준
+            // append()
+            // after()
+
+            // 1. $(A).appendTo(B)
+            // -> A를 B의 뒷부분에 추가
+            // $("li:eq(0)").appendTo("ul")
+            // 2. $(A).preprndTo(B)
+            // -> A를 B의 앞부분에 추가
+            // $("li:eq(4)").prependTo("ul")
+            // 3. $(A).insertAfter(B)
+            // -> A를 B의 뒤로 추가
+            // $("li:eq(0)").insertAfter("ul")
+            // 4. $(A).insertBefore(B)
+            // -> A를 B의 앞으로 추가
+            // $("li:eq(3)").insertBefore("ul")
+            // 5. $(A).append(B)
+            // -> B를 A의 뒷부분에 추가
+            // $("li:eq(0)").append("ul")
+            // 6. $(A).prepend(B)
+            // -> B를 A의 앞부분에 추가
+            // $("li:eq(4)").prepend("ul")
+            // 7. $(A).after(B)
+            // -> B를 A의 뒤에 추가
+            // $("li:eq(0)").after("ul")
+            // 8. $(A).before(B)
+            // -> B를 A의 앞에 추가
+            // $("li:eq(3)").before("ul")
+
+            // 5초 카운트 하기
+            //1초마다 가장 위쪽 객체를 가장 앞으로 보내기
+            // 4,3,2,1,0을 선택해서 밑으로 보내기
+            // var auto_num=4;
+            // var auto_count=setInterval(function(){
+                //일정 시간마다 반복하는 실행식 영역
+                // $("li").eq(auto_num).prependTo("ul")
+                // ======================================
+                // $("li:eq(4)").prependTo("ul")
+            // },1000,function(){
+                // 콜백 함수
+                // 일정 시간마다 반복하는 실행식이 끝나면 실행할 식 영역
+                // auto_num--;
+            // })
+
+            // $("#out_box").mouseover(function(){
+            //     $("body").append("<h1>MouseOver</h1>")
+            // }).mouseenter(function(){
+            //     $("body").append("<h1>MouseEnter</h1>")
+            // });
+            
+            var bg=["red","yellow","blue","green","pink"];
+
+            $("li").css({
+                background:function(index){
+                    return bg[index]
+                }
+            })
+            var auto=setInterval(function(){
+                $("li:eq(0)").appendTo("ul")
+            },1500)
+            
+
+
+
+
+
+        })//
+    </script>
+</head>
+<body>
+    <!-- <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div> -->
+
+    <!-- <ul>
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul> -->
+
+    <!-- <ul>
+        <li>4</li>
+        <li>3</li>
+        <li>2</li>
+        <li>1</li>
+        <li>0</li>
+    </ul> -->
+
+    <!-- <div id="out_box">
+        <div id="in_box"></div>
+    </div> -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+</html>

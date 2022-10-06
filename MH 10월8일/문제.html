@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: black;
+        }
+    </style>
+    <script src="../jquery-3.6.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            // $("div:nth-child(1)").css({
+            //     fontSize: 50
+            // }).click(function(){
+            //     $("div:nth-child(2)").css({
+            //         background: "yellow"
+            //     })
+            // })
+            // $("div:nth-child(2)").css({
+            //     background: "red",
+            //     width: 300,
+            //     height: 300
+            // })
+            var color=["red", "yellow", "blue", "green", "pink"]
+            var i=0
+            $("h1").click(function(){
+                // if(i==0){
+                //     $("div").css({
+                //         background: color[i],
+                //     })
+                //     i++
+                //  }
+                // else if(i==1){
+                //     $("div").css({
+                //         background: color[i],
+                //     })
+                //     i++
+                //  }   
+                // else if(i==2){
+                //     $("div").css({
+                //         background: color[i],
+                //     })
+                //     i++
+                //  }
+                // else if(i==3){
+                //     $("div").css({
+                //         background: color[i],
+                //     })
+                //     i++
+                //  }     
+                // else if(i==4){
+                //     $("div").css({
+                //         background: color[i],
+                //     })
+                //     i=0;
+                // }
+                $("div").css({
+                    background:color[i],
+                })
+                i++;
+                if(i>4){
+                    i=0;
+                }
+            })
+            
+        });//끝
+    </script>
+</head>
+<body>
+    <!-- <div id="click">Click</div>
+    <div></div> -->
+    <h1>Click</h1>
+    <div></div>
+</body>
+</html>
