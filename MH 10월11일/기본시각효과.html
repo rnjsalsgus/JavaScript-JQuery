@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .out_box{
+            width: 300px;
+            height: 700px;
+            border: 5px solid black;
+            float: left;
+            margin-left: 50px;
+        }
+        button{
+            width: 100%;
+            height: 100px;
+        }
+        .in_box{
+            width: 100%;
+            height: 600px;
+            background-color: red;
+            display: block;
+        }
+    </style>
+    <script src="../jquery-3.6.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 기본 시각 효과
+            // 1. $(선택자).효과명();
+
+            // 2. $(선택자).효과명(속도);
+            // -> 효과가 진행되는 속도
+            // -> ms 사용
+            // -> slow, normal, fast 사용 가능
+            
+            // 3. $(선택자).효과명(속도,easing);
+            // -easing
+            // -> 애니메이션의 형태
+            // -> 시간, 속도 차이로 만들어짐
+            // -> linear, swing 두 가지 기본 사용
+            // -> ui 플러그인 추가시 더 많은 easing값 사용가능
+
+            // 4. $(선택자).효과명(속도,easing,콜백함수);
+            // -콜백함수
+            // -> 효과가 모두 완료된 후 실행되는 실행식
+
+            // 1. 객체의 크기를 확대, 축소하면서 보였다 사라졌다하는 효과
+            // -show()
+            // -> 크기가 커지면서 보이는 효과
+            // -> 스타일시트 display값 block
+            // $("#sh_t").click(function(){
+                // $("#sh_box").show()
+                // 속도 삽입
+                // $("#sh_box").show(1000)
+                // easing값 삽입
+                // $("#sh_box").show(1000,"swing")
+                // 콜백함수 삽입
+            //     $("#sh_box").show(1000,"swing",function(){
+            //         $("button").css({
+            //             background: "yellow"
+            //         })
+            //     })
+            // })
+            // -hide() 
+            // -> 크기가 작아지면서 사라지는 효과
+            // -> 스타일시트 display값 none
+            // $("#sh_t").click(function(){
+                // $("#sh_box").hide()
+                // $("#sh_box").hide(1000)
+                // $("#sh_box").hide(1000,"linear")
+            //     $("#sh_box").hide(1000,"linear",function(){
+            //         $("button").css({
+            //             background: "green"
+            //         })
+            //     })
+            // })
+            // -toggle() show + hide
+            // -> display값이 block이면 hide
+            // -> display값이 none이면 show
+            // $("#sh_t").click(function(){
+            //     $("#sh_box").toggle(1000)
+            // })
+
+            // 2. 객체를 슬라이드처럼 업, 다운되면서 보였다 사라졌다하는 효과
+            // -slideDown()
+            //   -> 슬라이드 내려오면서 보임
+            //   -> display: block
+            // $("#ud_t").click(function(){
+            //     $("#ud_box").slideDown(1000)
+            // })
+            // -slideUp()
+            //   -> 슬라이드 올라가면서 사라짐
+            //   -> display: none
+            // $("#ud_t").click(function(){
+            //     $("#ud_box").slideUp(1000)
+            // })
+            // -slideToggle()
+            //   -> slideDown + slideUp
+            //   -> display: block 이면 slideUp
+            //   -> display: none 이면 slideDown
+            // $("#ud_t").click(function(){
+            //     $("#ud_box").slideToggle(1000)
+            // })
+
+            // 3. 객체의 투명도 보였다 사라졌다하는 효과
+            // -fadeIn()
+            // -> 투명도 1로 변경되면서 보여짐
+            // -> display: block
+            // $("#io_t").click(function(){
+            //     $("#io_box").fadeIn(1000)
+            // })
+            // -fadeOut()
+            // -> 투명도가 0으로 변경되면서 사라짐
+            // -> display: none
+            // $("#io_t").click(function(){
+            //     $("#io_box").fadeOut(1000)
+            // })
+            // -fadeToggle()
+            // -> display: block이면 fadeOut
+            // -> display: none 이면 fadeIn
+            // $("#io_t").click(function(){
+            //     $("#io_box").fadeToggle(1000)
+            // })
+        });
+    </script>
+</head>
+<body>
+    <div class="out_box">
+        <button id="sh_t">show+hide</button>
+        <div class="in_box" id="sh_box">
+            크기가 커졌다 작아졌다
+        </div>
+    </div>
+
+    <div class="out_box">
+        <button id="ud_t">slideUp+slideDown</button>
+        <div class="in_box" id="ud_box">
+            슬라이드 올라갔다 내려갔다
+        </div>
+    </div>
+
+    <div class="out_box">
+        <button id="io_t">slideUp+slideDown</button>
+        <div class="in_box" id="io_box">
+            투명도로 보였다 사라졌다
+        </div>
+    </div>
+</body>
+</html>

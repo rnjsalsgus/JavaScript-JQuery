@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: beige;
+            font-size: 50px;
+            position: relative;
+        }
+    </style>
+    <script src="../jquery-3.6.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 사용자 정의 효과
+            // animate()
+            // 1. $(선택자).animate({속성})
+            // -크기 : widht, height,padding
+            // -투명도 : opacity 
+            // -위치값 : top,left,right,bottom,margin
+            // -> position값 필수 삽입해야 위치값 활용가능
+
+            // 2. $(선택자).animate({속성},속도)
+            // -속도
+            // -> ms사용
+            // -> 진행속도를 의미
+
+            // 3..$(선택자).animate({속성},속도,easing)
+            // -easing
+            // -> 애니메이션의 형태
+            // -> linear, swing 기본사용
+            // -> 추가로 ui 플러그인 삽입 시 easing값 추가사용 가능
+
+            // 4.$(선택자).animate({속성},속도,easing,콜백함수)
+            // - 콜백함수
+            // -> 애니메이션의 모두 완료된 후에 실행되는 실행문
+
+            // $("div").click(function(){
+            //     $(this).animate({
+            //         // width: 800,
+            //         // height: 800
+            //         // padding: 300
+            //         // marginTop: 300
+            //         // top: 100,
+            //         // left: 100
+            //     })
+            // })
+
+            // $("div").click(function(){
+            //     $(this).animate({
+            //         left: 800
+            //     },1000).animate({
+            //         left: 0
+            //     },1000)
+            // })
+
+            // $("div").click(function(){
+            //     $(this).animate({
+            //         left: 800
+            //     },1000,function(){
+            //        $(this).animate({
+            //         left: 0
+            //        },1000) 
+            //     })
+            // })
+
+            // 상대값 애니메이션
+            var click_num=0;
+            $("div").click(function(){
+                click_num++;
+                $(this).animate({
+                    // left:100*click_num
+                    width: 100*click_num
+                })
+            })
+            
+        });
+    </script>
+</head>
+<body>
+    <div>
+    </div>
+</body>
+</html>
