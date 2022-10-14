@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        #wrap{
+            width: 800px;
+            height: 500px;
+            border: 5px solid black;
+            margin: 100px auto
+        }
+        #in_wrap{
+            width: 800px;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+        }
+        #out_box{
+            width: 4000px;
+            height: 500px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .in_box{
+            width: 800px;
+            height: 500px;
+            float: left;
+            font-size: 100px;
+            text-align: center;
+            line-height: 500px;
+        }
+        #but_wrap{
+           width: 300px;
+           height: 30px;
+           background-color: black;
+           position:relative;
+           top: -50px;
+           margin: 0 auto;
+           line-height: 30px;
+           font-size: 20px;
+           text-align: center;
+        }
+        .but_box{
+            width: 30px;
+            height: 30px;
+            margin: 0 15px;
+            float: left;
+            background-color: white;
+            border-radius: 15px;
+            
+        }
+        
+    </style>
+    <script src="../jquery-3.6.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            var bg=["red","blue","yellow","green","pink"]
+            $(".in_box").css({
+                background:function(index){
+                    return bg[index]
+                }
+            })
+            // but_box의 index값을 저장 사용함
+            $(".but_box").click(function(){
+                var click_num = $(this).index();
+                $("#out_box").animate({
+                    left: -800*click_num
+                })
+            })
+            
+
+        })
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="in_wrap">
+            <ul id="out_box">
+                <li class="in_box">1</li>
+                <li class="in_box">2</li>
+                <li class="in_box">3</li>
+                <li class="in_box">4</li>
+                <li class="in_box">5</li>
+            </ul>
+        </div>
+        <ul id="but_wrap">
+            <li class="but_box">1</li>
+            <li class="but_box">2</li>
+            <li class="but_box">3</li>
+            <li class="but_box">4</li>
+            <li class="but_box">5</li>
+        </ul>
+    </div>
+</body>
+</html>

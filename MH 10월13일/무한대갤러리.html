@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        #wrap{
+            width: 1000px;
+            height: 500px;
+            border: 5px solid black;
+            margin: 100px auto;
+        }
+        .out_wrap{
+            /* 실제 마스크 영역 */
+            width: 800px;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+            float: left;
+            /* border: 1px solid red; */
+        }
+        .arrow{
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin-top: 200px;
+            background-color: aqua;
+            font-size:100px;
+            text-align: center;
+            line-height: 100px;
+        }
+        #in_wrap{
+            /* out_wrap의 왼쪽 상단 0,0을 기준으로 위치값 조절됨
+            arrow 클릭시 left값 변경됨 */
+            width: 4000px;
+            height: 500px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .in_box{
+            width: 800px;
+            height: 500px;
+            float: left;
+            font-size: 100px;
+            text-align: center;
+            line-height: 500px;
+        }
+    </style>
+    <script src="../jquery-3.6.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 1. 오른쪽 버튼을 글릭하면
+            // -배너의 가로 크기값 만큼 왼쪽으로 움직이게 하기
+            // 마지막 배너에서 오른쪽 버튼을 클릭하면 동일한 움직임을 유지하면서
+            // 첫번째 배너가 나오게 하기
+            // 배너 5개 작업
+
+            // 2. 왼쪽 버튼을 클릭하면
+            // -오른쪽으로 배너가 움직이게 하기
+            // -오른쪽 버튼을 클릭한후 왼쪽 버튼을 클릭하면 자연스럽게 앞 배너가 나오게 하기
+            // -첫번째 배너가 나오는 영역에서 왼쪽 버튼을 클릭하면 마지막 배너가 보이게 하기
+            var bg=["red","blue","green","yellow","pink"]
+        $(".in_box").css({
+            background: function(index){
+                return bg[index]
+            }
+        })
+          
+        $("#right_arrow").click(function(){
+            $("#in_wrap").animate({
+                left: -800
+            },1000,function(){
+                $(".in_box:eq(0)").appendTo("#in_wrap")
+                $("#in_wrap").css({
+                    left: 0
+                })
+            })
+        })
+        $("#left_arrow").click(function(){
+            $(".in_box:eq(4)").prependTo("#in_wrap")
+            $("#in_wrap").css({
+                left: -800
+            })
+            $("#in_wrap").animate({
+                left: 0
+            },1000)
+        })
+
+        // 강제 이벤트 발생
+        // -> 마치 사용자가 이벤트를 발생시키는 것 처럼 보이게 하는 명령
+        // -> 사용전 이벤트가 정의되어져 있는 객체에만 사용할 수 있음
+        // - trigger() 
+        // -> $(선택자).trigger(이벤트명)
+
+        // $("#right_arrow").trigger("click");
+
+        // 1초마다 강제로 이벤트 발생시키기
+        var auto = setInterval(function(){
+            $("#right_arrow").trigger("click")
+        },2000)
+        // 배너에 마우스를 올리면 멈춤
+        // 배너에서 마우스를 떼면 재생
+        // 1.
+        // $("#in_wrap").mouseover(function(){
+        //     clearInterval(auto)
+        // }).mouseout(function(){
+        //     auto = setInterval(function(){
+        //         $("#right_arrow").trigger("click")
+        //     },2000)
+        // })
+        // 2.
+        $("#in_wrap").hover(function(){
+            clearInterval(auto)
+        },function(){
+            auto = setInterval(function(){
+                $("#right_arrow").trigger("click")
+            },2000)
+        })
+
+        // 변수
+        // -> 전역변수
+        // - 문서 전체에서 사용하는 가능
+        // - 문서 상단에서 정의되어 문서 전체에 사용함
+        // - 변수 정의 후 사용
+        // - 함수 밖에서 var 변수로 지정하면 전역변수
+        
+        // -> 지역변수
+        // - 함수 안에서만 사용하는 변수
+        // - 함수 내부에서만 정의, 사용함
+        // - 함수 밖에서는 읽히지 않음
+        // -> 함수안에서 var로 정의하는 함수는 지역변수
+        // -> 함수안에서 var없이 정의하는 함수는 전역변수
+
+
+
+
+
+
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <h1 class="arrow" id="left_arrow">&lt;</h1>
+        <div class="out_wrap">
+            <ul id="in_wrap">
+                <li class="in_box">1</li>
+                <li class="in_box">2</li>
+                <li class="in_box">3</li>
+                <li class="in_box">4</li>
+                <li class="in_box">5</li>
+            </ul>
+        </div>
+        <h1 class="arrow" id="right_arrow">&gt;</h1>
+    </div>
+</body>
+</html>
