@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        h1{
+            width: 500px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .box{
+            background-color: red;
+        }
+        #box{
+            width: 300px;
+            height: 300px;
+            border: 5px solid black;
+            margin: 100px auto;
+        }
+        .m_up{
+            background-color: yellow;
+        }
+        .m_click{
+            background-color: red;
+        }
+    </style>
+    <script src="../jquery-3.6.1.js"></script>
+    <script src="../jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 1. addClass()
+            // -> 스타일에서 지정한 클래스명에 스타일을 선택한 객체에 삽입
+            // $(선택자).addClass("클래스명")
+            // -> 반드시 클래스만 사용, 클래스명 삽입시 . 없이 삽입
+            // $("h1").addClass("box")
+            // -> ui플러그인이 추가되면 addClass("클래스명",속도,콜백함수)
+            // -> 애니메이션 작업 추가됨
+
+            // 2. removeClass()
+            // -> 이미 태그에 삽입된 클래스를 제거함
+            // $("h1").removeClass("box")
+            // -> ui플러그인이 추가되면 removeClass("클래스명",속도,콜백함수)
+            // -> 애니메이션 작업 추가됨
+
+            // 1. 박스 하나 만들기
+            // 2. 가로세로 300px
+            // 3. 박스에 마우스를 올리면 배경색 노란색으로 변경
+            // 4. 박스에서 마우스가 벗어나면 하늘색으로 변경
+            // 5. 박스를 클릭하면 빨강색으로 변경
+            // $("#box").mouseover(function(){
+            //     $(this).css({
+            //         background:"yellow"
+            //     })
+            // }).mouseout(function(){
+            //     $(this).css({
+            //         background: "skyblue"
+            //     })
+            // }).click(function(){
+            //     $(this).css({
+            //         background: "red"
+            //     })
+            // })
+            $("#box").on({
+                mouseenter:function(){
+                    $(this).addClass("m_up",1000)
+                },
+                mouseleave:function(){
+                    $(this).removeClass("m_up",1000).removeClass("m_click",1000)
+                    
+                },
+                click:function(){
+                    $(this).addClass("m_click",1000)
+                }
+            })
+
+            // toggleClass()
+            // -> addClass + removeClass
+            // -> 선택한 객체에 클래스가 있으면 제거 선택한 객체에 클래스가 없으면 추가
+            // $("h1").toggleClass("box")
+            // -> ui플러그인이 추가되면 toggleClass("클래스명",속도,콜백함수)
+            // -> 애니메이션 작업 추가됨
+
+            // hasClass()
+            // -> 선택한 객체에 스타일이 없으면 false, 선택한 객체에 스타일이 있으면 true
+            // document.write($("#h1").hasClass("box"))
+            // document.write($("#h2").hasClass("box"))
+
+
+
+        })//
+    </script>
+</head>
+<body>
+    <!-- <h1 class="box" id="h1">box 클래스명 있음</h1>
+    <h1 id="h2">클래스명 없음</h1> -->
+    <div id="box"></div>
+</body>
+</html>

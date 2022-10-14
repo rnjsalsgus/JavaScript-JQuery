@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        #out_box{
+            width: 1100px;
+            height: 100px;
+            border: 5px solid black;
+            margin: 100px auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        .in_box{
+            width: 200px;
+            height: 100px;
+            background-color: yellow;
+            font-size: 20px;
+            text-align: center;
+            line-height: 100px;
+            overflow: hidden;
+        }
+        .sub_box{
+            width: 200px;
+            height: 150px;
+            background-color: aqua;
+            
+        }
+        .sub_menu{
+            width: 200px;
+            height: 50px;
+            border: 1px solid black;
+            line-height: 50px;
+            box-sizing: border-box;
+        }
+        .m_up{
+            /* background-color: aqua; */
+            height: 250px;
+            background-color: aqua;
+        }
+        .sub_up{
+            background-color: green;
+            color:white
+        }
+    </style>
+    <script src="../jquery-3.6.1.js"></script>
+    <script src="../jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            // $(".in_box").on({
+            //     mouseenter: function(){
+            //         $(this).addClass("m_up",700)
+            //     },
+            //     mouseleave: function(){
+            //         $(this).removeClass("m_up",700)
+            //     }    
+            // })
+            $(".in_box").hover(function(){
+                $(this).addClass("m_up",500)
+            },function(){
+                $(this).removeClass("m_up",500)
+            })
+            $(".sub_menu").hover(function(){
+                $(this).addClass("sub_up")
+            },function(){
+                $(this).removeClass("sub_up")
+            })
+        })//
+    </script>
+</head>
+<body>
+    <ul id="out_box">
+        <li class="in_box">상위메뉴
+            <ul class="sub_box">
+                <li class="sub_menu">하위메뉴1</li>
+                <li class="sub_menu">하위메뉴2</li>
+                <li class="sub_menu">하위메뉴3</li>
+            </ul>
+        </li>
+        <li class="in_box">상위메뉴
+            <ul class="sub_box">
+                <li class="sub_menu">하위메뉴1</li>
+                <li class="sub_menu">하위메뉴2</li>
+                <li class="sub_menu">하위메뉴3</li>
+            </ul>
+        </li>
+        <li class="in_box">상위메뉴
+            <ul class="sub_box">
+                <li class="sub_menu">하위메뉴1</li>
+                <li class="sub_menu">하위메뉴2</li>
+                <li class="sub_menu">하위메뉴3</li>
+            </ul>
+        </li>
+        <li class="in_box">상위메뉴
+            <ul class="sub_box">
+                <li class="sub_menu">하위메뉴1</li>
+                <li class="sub_menu">하위메뉴2</li>
+                <li class="sub_menu">하위메뉴3</li>
+            </ul>
+        </li>
+        <li class="in_box">상위메뉴
+            <ul class="sub_box">
+                <li class="sub_menu">하위메뉴1</li>
+                <li class="sub_menu">하위메뉴2</li>
+                <li class="sub_menu">하위메뉴3</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
