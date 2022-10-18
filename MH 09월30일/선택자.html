@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+    <script src="../jquery-3.6.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 선택자 - $("선택자"), $(선택자).위치선택자()
+            // -> 위치 필터 선택자
+            // 1. 홀수번째 선택자 요소:odd
+            // -> 인덱스값의 홀수, 위치는 짝수로 보임
+            // $("li:odd").css({
+            //     background:"red"
+            // })
+            // 2. 짝수번째 선택자 요소:event
+            // -> 인덱스값의 짝수, 위치는 홀수로 보임
+            // $("li:even").css({
+            //     color:"blue"
+            // })
+            // 3. 첫번째 선택자 요소:fisrt
+            // $("li:first").css({
+            //     background:"url(img/cat1.jpg)"
+            // })
+            // 4, 마지막 선택자 요소:last
+            // $("li:last").css({
+            //     background:"red"
+            // })
+            // 5. gt(n) n번째 초과 선택
+            // $("li:gt(2)").css({
+            //     background:"yellow"
+            // })
+            // 6. lt(n) n번째 미만 선택
+            // $("li:lt(2)").css({
+            //      background:"red"
+            //  })
+            //  7. not(요소) 선택한 요소를 뺀 나머지 - 요소:not(요소)
+            // $("li:not(.abc)").css({ 
+            //     color:"red"
+            // })
+            // 8. 인덱스값 활용 수식형태의 선택자
+            // 요소:nth-child(3n+1)
+            // $("li:nth-child(2n+1)").css({
+            //     color:"red"
+            // })
+            // 9. ★ eq(n) n번째 위치 선택 - 요소:eq(n) ★
+            // $("li:eq(0)").css({
+            //     background:"red"
+            // })
+            // $("li:eq(1)").css({
+            //     background:"pink"
+            // })
+            // $("li:eq(2)").css({
+            //     background:"blue"
+            // })
+            // $("li:eq(3)").css({
+            //     background:"yellow"
+            // })
+            // $("li:eq(4)").css({
+            //     background:"green"
+            // })
+            // 함수형태 선택자
+            // $(선택자).eq(n).css()
+            // var bg_color=["red","pink","blue","yellow","green"];
+            // // for(i=0;i<5;i++){
+            // //     $("li").eq(i).css({
+            // //         background:bg_color[i]
+            // //     });
+            // // }
+            // var i=0;
+            // var color=setInterval(function(){
+            //     $("li").eq(i).css({
+            //         background:bg_color[i]
+            //     })
+            //     i++;
+            //     if(i>bg_color.length){
+            //     i=0;
+            //     $("li").css({
+            //         background:"white"
+            //      })
+            // }
+            // },1000);
+
+            // 배열 또는 css상태 속성값에 경로삽입시 활용법
+            // 연결연산자
+            // -> , + 
+            var bg_img=["cat1.jpg","cat2.jpg","cat3.jpg","cat4.jpg","cat5.jpg"]
+            // $("li").css({
+                // background:"url(img/cat1.jpg)",
+                // background:배열
+                // background:"url(img/"+배열명+")"
+                // background:"url(img/"+bg_img[i]+")",
+                // backgroungRepeat:"noRepeat"
+                //"background-repeat":"no-repeat"
+           // })
+        //    for(i=0;i<5;i++){
+        //       $("div").eq(i).css({
+        //         width:400,
+        //         height:400,
+        //         border:"10px solid black",
+        //         background:"url(img/"+bg_img[i]+")",
+        //         backgroundRepeat:"no-repeat"
+        //         });
+        //     }
+
+        // setInterval로 변경해보기
+
+            // var i=0;
+            // var set_img=setInterval(function(){
+            //     $("div").eq(i).css({
+            //     width:400,
+            //     height:400,
+            //     border:"10px solid black",
+            //     background:"url(img/"+bg_img[i]+")",
+            //     backgroundRepeat:"no-repeat"
+            //     });
+            //     i++;
+            // },1000)
+
+            // attr(); -> 태그에 직접 스타일 삽입, 추가, 제거
+            $("img").attr({
+                src:"img/cat2.jpg"
+            })
+
+        });//지우지 말기
+    </script>
+</head>
+<body>
+    <!-- <ul>
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+        <li class="abc">3</li>
+        <li>4</li>
+    </ul> -->
+    <!-- <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> -->
+    <img src="img/cat1.jpg" alt="고양이">
+</body>
+</html>
