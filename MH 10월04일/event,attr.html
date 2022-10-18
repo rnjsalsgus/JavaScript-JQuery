@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event,Attr</title>
+    <script src="../jquery-3.6.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 마우스이벤트
+            // 1. click
+            // 2. dblclick
+            // 3. mousedown
+            // 4. mouseup
+            // 5. mousemove
+            // 6. mouseover
+            // 7. mouseout
+            // 8. mouseenter
+            // 9. mouseleave
+
+            // 단독 이벤트
+            // $(선택자).이벤트명(function(){}).이벤트명(function(){});
+
+            // 다중 이벤트
+            // $(선택자).on({
+            //     이벤트명:function(){},
+            //     이벤트명:function(){}
+            // })
+            // hover()
+            // -> mouseenter+mouseleave
+            // $(선택자).hover(function(){mouseenter},function(){mouseleave})
+
+            $("div").css({
+                width: 400,
+                height: 400,
+                background: "red"    
+            }).mouseover(function(){
+                $(this).css({
+                    background: "yellow"
+                })
+                // 선택자
+                // this
+                // -> 이벤트 발생 객체 선택
+                // -> 이미 정의된 키워드 "" 사용하지 않음
+            }).mouseout(function(){
+                $(this).css({
+                    background: "red"
+                })
+            })
+        });//끝
+    </script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>
