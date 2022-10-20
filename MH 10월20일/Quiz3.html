@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        #wrap{
+            position: fixed;
+        }
+        .in_box{
+            width: 1600px;
+            height: 800px;
+            background-color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -400px;
+            margin-left: -800px;
+            font-size: 200px;
+            text-align: center;
+            line-height: 800px;
+        }
+        .win_box{
+            position: relative;
+        }
+        #width_box>.win_box{
+            float: left;
+        }
+        #width_box{
+            position: relative;
+
+        }
+        .but{
+            width:100px;
+            height: 100px;
+            background-color: white;
+            font-size: 100px;
+            text-align: center;
+            line-height: 100px;
+            position: absolute;
+        }
+        #b_u_m,#b_m_u,#b_m_d,#b_d_m{
+            left: 50%;
+            margin-left: -50px;
+        }
+        #b_m_l,#b_m_r,#b_l_m,#b_r_m{
+            top: 50%;
+            margin-top: -50px;
+        }
+        #b_u_m,#b_m_d{
+            bottom: 0;
+        }
+        #b_m_u,#b_d_m{
+            top: 0;
+        }
+        #b_l_m,#b_m_r{
+            right: 0;
+        }
+        #b_r_m,#b_m_l{
+            left: 0;
+        }
+    </style>
+    <script src="../jquery-3.6.1.js"></script>
+    <script src="../jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            var win_width=$(window).width();
+            var win_height=$(window).height();
+            var bg=["red","blue","yellow","pink","green"]
+            $("#wrap").css({
+                width: win_width*3,
+                height: win_height*3,
+                top: -win_height
+                
+            })
+            $("#width_box").css({
+                width: win_width*3,
+                height: win_height,
+                left: -win_width
+            })
+            $(".win_box").css({
+                width: win_width,
+                height: win_height,
+                background: function(index){
+                    return bg[index]
+                }
+            })
+            $("#b_u_m").click(function(){
+                $("#wrap").animate({
+                    top: -win_height
+                })
+            })
+            $("#b_m_u").click(function(){
+                $("#wrap").animate({
+                    top: 0
+                })
+            })
+            $("#b_m_l").click(function(){
+                $("#wrap").animate({
+                    left: win_width
+                })
+            })
+            $("#b_m_r").click(function(){
+                $("#wrap").animate({
+                    left: -win_width
+                })
+            })
+            $("#b_m_d").click(function(){
+                $("#wrap").animate({
+                    top: -win_height*2
+                })
+            })
+            $("#b_l_m").click(function(){
+                $("#wrap").animate({
+                    left: 0
+                })
+            })
+            $("#b_r_m").click(function(){
+                $("#wrap").animate({
+                    left: 0
+                })
+            })
+            $("#b_d_m").click(function(){
+                $("#wrap").animate({
+                    top: -win_height
+                })
+            })
+        })//
+    </script>
+</head>
+<body>
+    <div id="wrap">
+            <div class="win_box">
+                <div class="in_box">위쪽
+                    <div class="but" id="b_u_m">▼</div>
+                </div>
+                
+            </div>
+            <div id="width_box">
+                <div class="win_box">
+                    <div class="in_box">왼쪽
+                        <div class="but" id="b_l_m">▶</div>
+                    </div>
+                </div>
+
+                <div class="win_box">
+                    <div class="in_box">메인
+                        <div class="but" id="b_m_u">▲</div>
+                        <div class="but" id="b_m_d">▼</div>
+                        <div class="but" id="b_m_l">◀</div>
+                        <div class="but" id="b_m_r">▶</div>
+                    </div>
+                </div>
+
+                <div class="win_box">
+                    <div class="in_box">오른쪽
+                        <div class="but" id="b_r_m">◀</div>
+                    </div>
+                </div>
+    
+            
+            </div>
+            <div class="win_box">
+                <div class="in_box">아래쪽
+                    <div class="but" id="b_d_m">▲</div>
+                </div>
+            </div>
+    
+        
+        </div>
+        
+
+</body>
+</html>

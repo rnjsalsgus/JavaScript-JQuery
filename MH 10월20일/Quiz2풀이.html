@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        #wrap{
+            position:fixed;
+        }
+        .win_box{
+            position:relative;
+        }
+        #width_box>.win_box{
+            float: left;
+        }
+        .but{
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            font-size: 100px;
+            text-align: center;
+            line-height: 100px;
+            position: absolute;
+        }
+        #p_1_2,#p_2_1,#p_2_3,#p_3_2{
+            left: 50%;
+            margin-left: -50px;
+        }
+        #p_3_4,#p_4_3,#p_4_5,#p_5_4,#p_1{
+            top: 50%;
+            margin-top: -50px;
+        }
+        #p_1_2,#p_2_3{
+            bottom:0;
+        }
+        #p_2_1,#p_3_2{
+            top: 0;
+        }
+        #p_3_4,#p_4_5,#p_1{
+            right: 0;
+        }
+        #p_4_3,#p_5_4{
+            left: 0;
+        }
+        
+    </style>
+    <script src="../jquery-3.6.1.js"></script>
+    <script src="../jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            var win_width=$(window).width();
+            var win_height=$(window).height();
+            var bg=["red","blue","yellow","pink","green"]
+            $("#wrap").css({
+                width: win_width*3,
+                height: win_height*3
+            })
+            $(".win_box").css({
+                width:win_width,
+                height: win_height,
+                background: function(index){
+                    return bg[index]
+                }
+            })
+            $("#width_box").css({
+                width: win_width*3,
+                height: win_height
+            })
+            $("#p_1_2").click(function(){
+                $("#wrap").animate({
+                    top: -win_height
+                })
+            })
+            $("#p_2_3").click(function(){
+                $("#wrap").animate({
+                    top: -win_height*2
+                })
+            })
+            $("#p_3_4").click(function(){
+                $("#wrap").animate({
+                    left: -win_width
+                })
+            })
+            $("#p_4_5").click(function(){
+                $("#wrap").animate({
+                    left: -win_width*2
+                })
+            })
+            $("#p_1").click(function(){
+                $("#wrap").animate({
+                    top: 0,
+                    left: 0
+                })
+            })
+            $("#p_2_1").click(function(){
+                $("#wrap").animate({
+                    top: 0
+                })
+            })
+            $("#p_3_2").click(function(){
+                $("#wrap").animate({
+                    top: -win_height
+                })
+            })
+            $("#p_4_3").click(function(){
+                $("#wrap").animate({
+                    left: 0
+                })
+            })
+            $("#p_5_4").click(function(){
+                $("#wrap").animate({
+                    left: win_width
+                })
+            })
+        })//
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div class="win_box">1
+            <h1 class="but" id="p_1_2">▼</h1>
+        </div>
+        <div class="win_box">2
+            <h1 class="but" id="p_2_1">▲</h1>
+            <h1 class="but" id="p_2_3">▼</h1>
+        </div>
+        <div id="width_box">
+            <div class="win_box">3
+                <h1 class="but" id="p_3_2">▲</h1>
+                <h1 class="but" id="p_3_4">▶</h1>
+            </div>
+
+            <div class="win_box">4
+                <h1 class="but" id="p_4_3">◀</h1>
+                <h1 class="but" id="p_4_5">▶</h1>
+            </div>
+            <div class="win_box">5
+                <h1 class="but" id="p_5_4">◀</h1>
+                <h1 class="but" id="p_1">▶</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

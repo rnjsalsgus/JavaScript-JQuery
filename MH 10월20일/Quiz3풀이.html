@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        #wrap{
+            position: fixed;
+            /* 모니터 기준 왼쪽 상단 0,0 기준 */
+        }
+        .in_box{
+            position:relative;
+            /* 자기가 있는 자리에서 객체의 왼쪽 상단을 기준 0,0 */
+        }
+        #width_wrap>.in_box{
+            float: left;
+        }
+        .con_box{
+            width: 90%;
+            height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background-color: white;
+        }
+        .but{
+            width: 100px;
+            height: 100px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 100px;
+            background-color: black;
+            position: absolute;
+        }
+        #t_m,#m_t,#m_b,#b_m{
+            left: 50%;
+            margin-left: -50px;
+        }
+        #l_m,#m_l,#m_r,#r_m{
+            top: 50%;
+            margin-top: -50px;
+        }
+        #t_m,#m_b{
+            bottom: 0;
+        }
+        #m_t,#b_m{
+            top: 0;
+        }
+        #l_m,#m_r{
+            right: 0;
+        }
+        #r_m,#m_l{
+            left: 0;
+        }
+    </style>
+    <script src="../jquery-3.6.1.js"></script>
+    <script src="../jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            var win_width=$(window).width();
+            var win_heigth=$(window).height();
+            var bg=["red","blue","yellow","pink","green"]
+            var con_box_width=$(".con_box").width();
+            var con_box_height=$("con_box").height();
+
+            $("#wrap").css({
+                width: win_width*3,
+                height: win_heigth*3,
+                top: -win_height,
+                left: -win_width
+            })
+            $(".in_box").css({
+                width: win_width,
+                height: win_height,
+                background: function(index){
+                    return bg[index]
+                }
+            })
+            $("#width_wrap").css({
+                width: win_width*3,
+                height: win_heigth
+            })
+
+            var con_box_width=$(".con_box").width();
+            var con_box_height=$("con_box").height();
+
+            $(".con_box").css({
+                marginTop: -con_box_height/2,
+                marginLeft: -con_box_width/2
+            })
+
+            $("#top_page, #botttom_page").css({
+                left: win_width
+            })
+            $("#m_t").click(function(){
+                $("#wrap").animate({
+                    top: 0,
+                })
+            })
+            $("#m_l").click(function(){
+                $("#wrap").animate({
+                    left: 0,
+                })
+            })
+            $("#m_r").click(function(){
+                $("#wrap").animate({
+                    left: -win_width*2
+                })
+            })
+            $("#m_b").click(function(){
+                $("#wrap").animate({
+                    top: win_heigth*2
+                })
+            })
+            $("#t_m,#b_m").click(function(){
+                $("#wrap").animate({
+                    top:-win_height
+                })
+            })
+            $("l_m,#r_m").click(function(){
+                $("#wrap").animate({
+                    left: -win_width
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div class="in_box" id="top_page">
+            <div class="con_box">
+                <h1>위</h1>
+                <h1 class="but" id="t_m">메인</h1>
+            </div>
+        </div>
+        <div id="width_wrap">
+            <div class="in_box">
+                <div class="con_box">
+                    <h1>왼쪽</h1>
+                    <h1 class="but" id="l_m">메인</h1>
+                </div>
+            </div>
+            <div class="in_box">
+                <div class="con_box">
+                    <h1>메인</h1>
+                    <h1 class="but" id="m_t">위</h1>
+                    <h1 class="but" id="m_l">왼쪽</h1>
+                    <h1 class="but" id="m_r">오른쪽</h1>
+                    <h1 class="but" id="m_b">아래</h1>
+                </div>
+            </div>
+            <div class="in_box">
+                <div class="con_box">
+                    <h1>오른쪽</h1>
+                    <h1 class="but" id="r_m">메인</h1>
+                </div>
+            </div>
+        </div>
+        <div class="in_box" id="bottom_page">
+            <div class="con_box">
+                <h1>아래</h1>
+                <h1 class="but" id="b_m">메인</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
