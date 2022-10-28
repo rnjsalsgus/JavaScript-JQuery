@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 조건문
+        // 1. if문
+        // if(조건식1){
+        //     조건식1이 참이면 실행되는 실행식
+        // }
+        // else if(조건식2){
+        //     조건식1이 거짓이고 조선식2가 참이면 실행되는 실행식
+        // }조건 추가시 else if가 추가됨
+        // else{
+        //     ->else에는 조건 없음
+        //     ->if문과 else문으로 구분하면 바로 앞에 있는 if문이 거짓일 때 실행
+        //     if(조건식1){}
+        //     if(조건식2){}
+        //     else{
+        //         바로 앞에 있는 if문의 조건식2가 거짓일 때 실행
+        //     }
+        //     -> else if가 있는 경우 앞에 있는 모든 조건이 거짓일 때 실행
+        // }
+        // -> if만 단독 사용 가능
+        // -> else if, else문은 단독 사용 불가능
+
+        // 중첩 if문
+        // if문 안에 또 다른 if문을 삽입해서 조건실행
+        // if(조건식1){
+        //     if(조건식1-1){
+
+        //     }
+        // }
+        // -> 밖에 있는 큰 if문이 필터역할
+        // -> 논리 연산자 표현으로 변경 가능함
+
+        // 숫자를 입력받아서 홀수인지 짝수인지 판별하기
+        // 단 출력문 사용시 ${} 사용하기
+        // let num=Number(prompt("숫자 입력"))
+
+        // if(num%2==0){
+        //     document.write(`${num}은 짝수입니다`)
+        // }
+        // else if(num%2==1){
+        //     document.write(`${num}은 홀수입니다`)
+        // }
+        // else{
+        //     document.write(`숫자가 아닙니다`)
+        // }
+
+        // 2. 삼항연산자
+        // -> 조건이 하나이고 참일때와 거짓일 때로 구분해서 실행할 실행식도 하나일 때 사용
+        // 조건?참일때 실행식:거짓일 때 실행식
+        // -> 코드를 짧게 쓸 수 있음
+        // let a=Number(prompt("30 이상의 수를 입력해주세요"))
+
+        // (a>=30)?document.write(`입력받은 수는 ${a}이고 ${a}는 30보다 큰 수 입니다.`):document.write(`입력받은 수는 ${a}이고 ${a}는 30보다 작은 수 입니다.`)
+
+        // 3. 짧은 조건문
+        // -> 논리 연산자의 특성을 조건문으로 사용
+        // bool표현식(조건) || bool표현식이 거짓일 때 실행하는 문장
+        // bool표현식(조건) && bool표현식이 참일 때 실행하는 문장
+        // -> or은 거짓 and는 참
+
+        // true || alert("참값 실행")
+        // false || alert("거짓값 실행")
+
+        // true && alert("참값 실행")
+        // false && alert("거짓값 실행")
+
+        // 1. 숫자를 입력받아서 3의 배수 인지 판별(삼항연산자활용)
+        // 2. 숫자를 입력받아서 홀수 인지 아닌지 판별(짧은 조건문 사용)
+
+        // let num=Number(prompt("숫자 입력"));
+
+        // (num%3==0)?document.write(`${num}은 3의 배수입니다<br>`):document.write(`${num}은 3의 배수가 아닙니다<br>`);
+        // (num%2==1) && document.write(`${num}은 홀수입니다`);
+        // (num%2==1) || document.write(`${num}은 짝수입니다`);
+
+        // 4. switch문 
+        // -> 여러가지 조건과 입력값을 비교해야할 때 사용
+        
+        // switch (key) {
+        //     case value:
+                
+        //         break;
+        
+        //     default:
+        //         break;
+        // }
+
+        // key -> 조건, boolean값
+        // value -> 조건, 경우값
+        // break -> 해당 case 실행 이후 switch문 종료
+        // default -> 앞에 있는 case가 모두 실행되지 않으면 실행되는 영역
+
+        // 저녁 메뉴 고르기
+        // 1.한식 2.양식 3.일식 4.중식
+        // 1. 한식일 경우 된장찌개, 김치찌개, 불고기, 두루치기 출력
+        // 2. 양식일 경우 돈까스, 스테이크, 파스타, 피자
+        // 3. 일식일 경우 초밥, 라면, 회, 덮밥
+        // 4. 중식일 경우 짜장면, 짬뽕, 탕수육, 칠리새우
+        // 1,2,3,4가 아닌 다른 수를 입력했을 경우 무엇을 먹을 것인가 출력
+        // let menu_num=prompt("1.한식 2.양식 3.일식 4.중식","메뉴입력")
+        // let menu=["한식","양식","일식","중식"]
+        
+        // if(menu_num==menu[0]||menu_num==1){
+        //     document.write(`된장찌개, 김치찌개, 불고기, 두루치기`)
+        // }
+        // else if(menu_num==menu[1]||menu_num==2){
+        //     document.write(`돈까스, 스테이크, 파스타, 피자`)
+        // }
+        // else if(menu_num==menu[2]||menu_num==3){
+        //     document.write(`초밥, 라면, 회, 덮밥`)
+        // }
+        // else if(menu_num==menu[3]||menu_num==4){
+        //     document.write(`짜장면, 짬뽕, 탕수육, 칠리새우`)
+        // }
+        // else{
+        //     document.write(`무엇을 먹을 것인가`)
+        // }
+
+        // switch(menu_num){
+        //     case "1":document.write(`된장찌개, 김치찌개, 불고기, 두루치기`);
+        //     // case문 사용시 자료형 동일하게 맞추기
+        //     break;
+        //     case "2":documentm.write(`돈까스, 스테이크, 파스타, 피자`)
+        //     break;
+        //     case "3":document.write(`초밥, 라면, 회, 덮밥`)
+        //     break;
+        //     case "4":document.write(`짜장면, 짬뽕, 탕수육, 칠리새우`)
+        //     break;
+
+        //     default:document.write(`무엇을 먹고 싶은가`)
+        //     break;
+        // }    
+        // -> case 실행식 하나 이상 여러개가 들어갈 경우에는 {}로 묶어줌
+        // case 조건:{
+        //     해당 case일때 실행되는 실행식
+        //     해당 case일때 실행되는 실행식
+        // }
+        
+        // switch문으로 입력 받은 수가 짝수인지 홀수인지 판별
+
+        // let num=Number(prompt("숫자 입력"))
+
+        // switch(num%2){
+        //     case 0:document.write(`짝수입니다.`)
+        //     break;
+        //     case 1:document.write(`홀수입니다.`)
+        //     break;
+
+        //     default:document.write(`숫자를 입력하세요.`)
+        //     break;
+        // }
+
+        // if문으로 출력하기
+        // 자신의 테어난 연도를 입력하면 해당 띠를 출력하기
+        // 쥐1996, 소1997 ,호랑이1998, 토끼1999, 용2000, 뱀2001, 말2002, 양2003, 원숭이2004, 닭(1981), 개1994, 돼지(1995)
+
+        let num=Number(prompt("연도 입력"))
+        let e=num%12;
+        let result;
+
+        // if(num%12==0){
+        //     document.write(`${num}은 원숭이띠입니다`)
+        // }
+        // else if(num%12==1){
+        //     document.write(`${num}은 닭띠입니다`)
+        // }
+        // else if(num%12==2){
+        //     document.write(`${num}은 개띠입니다`)
+        // }
+        // else if(num%12==3){
+        //     document.write(`${num}은 돼지띠입니다`)
+        // }
+        // else if(num%12==4){
+        //     document.write(`${num}은 쥐띠입니다`)
+        // }
+        // else if(num%12==5){
+        //     document.write(`${num}은 소띠입니다`)
+        // }
+        // else if(num%12==6){
+        //     document.write(`${num}은 호랑이띠입니다`)
+        // }
+        // else if(num%12==7){
+        //     document.write(`${num}은 토끼띠입니다`)
+        // }
+        // else if(num%12==8){
+        //     document.write(`${num}은 용띠입니다`)
+        // }
+        // else if(num%12==9){
+        //     document.write(`${num}은 뱀띠입니다`)
+        // }
+        // else if(num%12==10){
+        //     document.write(`${num}은 말띠입니다`)
+        // }
+        // else if(num%12==11){
+        //     document.write(`${num}은 양띠입니다`)
+        // }
+
+        switch(e){
+            case 1:result="닭";
+            break;
+            case 2:result="개";
+            break;
+            case 3:result="돼지";
+            break;
+            case 4:result="쥐"
+            break;
+            case 5:result="소"
+            break;
+            case 6:result="호랑이"
+            break;
+            case 7:result="토끼"
+            break;
+            case 8:result="용"
+            break;
+            case 9:result="뱀"
+            break;
+            case 10:result="말"
+            break;
+            case 11:result="양"
+            break;
+            case 0:result="원숭이"
+            break;
+            default:document.write(`숫자를 입력하세요`)
+            break;
+
+        }
+        document.write(`${num}년생은 ${result}띠입니다`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
