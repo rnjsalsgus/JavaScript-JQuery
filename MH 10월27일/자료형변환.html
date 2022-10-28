@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. 다른 형을 숫자로 변환
+        // - Number();
+        // -> 숫자 형태의 문자를 숫자형으로 변경
+        // var a= "123";
+        // document.write(Number(a));
+        // -parseInt 문자형 숫자를 정수형으로 변경
+        // var a="123.123";
+        // document.write(parseInt(a))
+        // -parseFloat 문자형 숫자를 실수형으로 변경
+        // var a="123.123";
+        // document.write(parseFloat(a))
+        // document.write(parseFloat(5/2))
+
+        // 2. 문자로 변경 
+        // - String() 함수
+        // var a=123;
+        // var b= String(a)
+        // document.write(b+b) 
+
+        // 3. boolean으로 변경
+        // - Boolean() 함수
+        // -> 일반적으로 대부분 true로 출력
+        // document.write(Boolean(1),"<br>")
+        // document.write(Boolean("문자"),"<br>")
+        // document.write(Boolean("false"),"<br>")
+
+        // 다음 5개는 false로 변환되어 출력
+        // 1. document.write(Boolean(0),"<br>")
+        // -> 0은 false를 의미, 1은 true를 의미
+        // var a=10;
+        // var b=7;
+        // var c=5;
+        // a>b>c
+        // document.write(a>b>c)
+        // 2. document.write(Boolean(NaN),"<br>")
+        // 3. document.write(Boolean(""),"<br>")
+        // 4. documnet.write(Boolean(null),"<br>")
+        // 5. let
+        // let a 
+        // document.write(Boolean(a),"<br>")
+        // -숫자 0은 false로 인식되어 false값으로 출력
+        // -부정적인 값 출력시 false로 출력(NaN,null)
+        // -비어있는 값 false 출력(" ")
+        // -비어있는 변수값 false 출력(let)
+
+        // document.write(Boolean("!!"))
+        // -> !! 논리 부정 연산자를 사용하면 자료형이 변환됨
+
+        // document.write(!!"문자열")
+        // -> Boolean()대신에 !! 사용해도 Boolean함수 사용과 같이 Boolean 값으로 변환
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
