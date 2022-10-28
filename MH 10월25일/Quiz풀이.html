@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        /* 전체 부모영역 */
+        /* 윈도우 영역으로만 인식 스크롤 없음 */
+        #wrap{
+            position: fixed;
+        }
+        .win_box{
+            position: relative;
+        }
+        .p_text{
+            font-size: 200px;
+            text-align: center;
+        }
+        .but{
+            width:100px;
+            height: 100px;
+            background-color: white;
+            font-size:100px;
+            text-align: center;
+            line-height: 100px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left:-50px;
+        }
+    </style>
+    <script src="../jquery-3.6.1.js"></script>
+    <script src="../jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+        // 1. win_box의 가로세로 크기 -> 윈도우 가로,세로
+        var win_width=$(window).width();
+        var win_height=$(window).height();
+        var bg=["red","blue","pink"]    
+        // $("#wrap").css({
+        //     width:win_width,
+        //     height:win_height*3
+        // })    
+        // $(".win_box").css({
+        //     width: win_width,
+        //     height: win_height,
+        //     background:function(index){
+        //         return bg[index]
+        //     }
+        // })
+        //스타일 함수
+        function layout(){
+            $("#wrap").css({
+                width:win_width,
+                height:win_height*3
+            })    
+            $(".win_box").css({
+                width: win_width,
+                height: win_height,
+                background:function(index){
+                return bg[index]
+                }
+            })
+        }
+        layout();
+        
+
+
+
+        //버튼 클릭시 wrap움직임
+        //이벤트 함수
+        function click_event(){
+            $("#p_1").click(function(){
+            $("#wrap").animate({
+                top: -win_height
+            })
+        })
+        $("#p_2").click(function(){
+            $("#wrap").animate({
+                top: -win_height*2
+            })
+        })    
+        $("#p_3").click(function(){
+            $("#wrap").animate({
+                top:0
+            })
+        })    
+        }
+        click_event();
+        // $("#p_1").click(function(){
+        //     $("#wrap").animate({
+        //         top: -win_height
+        //     })
+        // })
+        // $("#p_2").click(function(){
+        //     $("#wrap").animate({
+        //         top: -win_height*2
+        //     })
+        // })    
+        // $("#p_3").click(function(){
+        //     $("#wrap").animate({
+        //         top:0
+        //     })
+        // })    
+        })//
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div class="win_box">
+            <h1 class="p_text">1</h1>
+            <h1 id="p_1" class="but">▼</h1>
+    
+        </div>
+        <div class="win_box">
+            <h1 class="p_text">2</h1>
+            <h1 id="p_2" class="but">▼</h1>
+        </div>
+        <div class="win_box">
+            <h1 class="p_text">3</h1>
+            <h1 id="p_3" class="but">▲</h1>
+        </div>
+    </div>
+</body>
+</html>

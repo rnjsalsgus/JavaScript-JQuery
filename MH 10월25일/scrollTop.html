@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        #h_s{
+            position: fixed;
+            top:10px;
+            left:10px;
+        }
+        .out_box{
+            float: left;
+            box-sizing: border-box;
+        }
+    </style>
+    <script src="../jquery-3.6.1.js"></script>
+    <script src="../jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 스크롤 위치값
+            // 1. 세로 스크롤
+            // -> scrollTop
+            // -> animate의 속성으로 삽입
+            // -> 객체 선택시 html, body를 선택함
+            // -> 세로 길이가 길어지면 윈도우 영역안에서 크기 조절로 세분화됨
+            // -> 위에서 떨어지는 값 활용
+            var win_w=$(window).width();
+            var win_h=$(window).height();
+            $("#wrap").css({
+                width: win_w*3,
+                height: win_h
+            })
+            $(".out_box").css({
+                width: win_w,
+                height: win_h,
+                border: "10px solid black"
+            })
+
+
+            // 2. 가로 스크롤
+            // -> scrollLeft
+            // -> animate의 속성으로 삽입
+            // -> 객체 선택시 html, body를 선택함
+            // -> 가로 길이가 길어지면 윈도우 영역안에서 크기 조절로 세분화됨
+            // -> 왼쪽에서 떨어지는 값 활용
+
+            // var i=0;
+            // $("#h_s").click(function(){
+            //     i++;
+            //     $("html,body").animate({
+            //         scrollTop: win_h*i
+            //     })
+            // })
+                var i=0;
+            $("#h_s").click(function(){
+                i++;
+                $("html,body").animate({
+                    scrollLeft: win_w*i
+                })
+            })
+        })//end
+    </script>
+</head>
+<body>
+    <!-- 1.세로 스크롤 -->
+    <!-- <div class="out_box"></div>
+    <div class="out_box"></div>
+    <div class="out_box"></div>
+    <h1 id="h_s">세로 스크롤이 움직이게</h1> -->
+    <div id="wrap">
+        <div class="out_box"></div>
+        <div class="out_box"></div>
+        <div class="out_box"></div>
+    </div>
+    <h1 id="h_s">가로 스크롤이 움직이게</h1>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .out_box{
+            /* border: 10px solid black;
+            box-sizing: border-box; */
+            position: relative;
+        }
+        .in_box{
+            position: absolute;
+            background-color: white;
+            top: 50%;
+            left: 50%;
+        }
+    </style>
+    <script src="../jquery-3.6.1.js"></script>
+    <script src="../jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 1. 윈도우를 첫번째 읽어올때의 스타일
+            // var win_width=$(window).width();
+            // var win_height=$(window).height();
+            // var bg=["red","blue"];
+
+            // $(".out_box").css({
+            //     width: win_width,
+            //     height: win_height,
+            //     background: function(index){
+            //         return bg[index]
+            //     }
+            // })
+            // $(".in_box").css({
+            //     width: win_width*0.8,
+            //     height: win_height*0.8,
+            //     marginTop: -(win_height*0.8)/2,
+            //     marginLeft: -(win_width*0.8)/2
+            // })
+
+            //함수 선언을 이용한 방법
+            function layout(){
+                win_width=$(window).width();
+                win_height=$(window).height();
+                bg=["red","blue"];
+
+                
+                $(".out_box").css({
+                width: win_width,
+                height: win_height,
+                background: function(index){
+                    return bg[index]
+                }
+            })
+            $(".in_box").css({
+                width: win_width*0.8,
+                height: win_height*0.8,
+                marginTop: -(win_height*0.8)/2,
+                marginLeft: -(win_width*0.8)/2
+            })
+            }
+            layout();
+            // 2. 윈도우의 크기가 변경될 때의 스타일
+            // resize 이벤트
+            $(window).resize(function(){
+            //     win_width=$(window).width();
+            //     win_height=$(window).height();
+            //     bg=["red","blue"];
+
+            // $(".out_box").css({
+            //     width: win_width,
+            //     height: win_height,
+            //     background: function(index){
+            //         return bg[index]
+            //     }
+            // })
+            // $(".in_box").css({
+            //     width: win_width*0.8,
+            //     height: win_height*0.8,
+            //     marginTop: -(win_height*0.8)/2,
+            //     marginLeft: -(win_width*0.8)/2
+            // })
+            layout();
+            });
+        })//
+    </script>
+</head>
+<body>
+    <div class="out_box">
+        <div class="in_box"></div>
+    </div>
+    <div class="out_box">
+        <div class="in_box"></div>
+    </div>
+</body>
+</html>
