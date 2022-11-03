@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul,li{
+            list-style:none;
+        }
+        div{
+            border:1px solid black;
+        }
+        .out_box{
+            position:relative;
+        }
+        #inbox_1{
+            width: 200px;
+            height: 100px;
+            background-color: skyblue;
+            position: absolute;
+            left: 50px;
+            top: 20px;
+        }
+        #inbox_2{
+            width: 1400px;
+            height: 100px;
+            background-color: skyblue;
+            position: absolute;
+            top: 20px;
+            right: 50px;
+        }
+        #in_wrap{
+            width: 90%;
+            height: 500px;
+            background-color: yellow;
+            position: absolute;
+            left: 50%;
+            top: 250px;
+        }
+        .box_1{
+            width: 500px;
+            height: 350px;
+            float: left;
+            background-color: purple;
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top: 75px;
+        }
+        #wrap1{
+            width: 90%;
+            height: 100px;
+            background-color: yellow;
+            left: 50%;
+            top: 50px;
+            position: relative;
+        }
+        .inwrap{
+            float: left;
+            height: 70px;
+            background-color: skyblue;
+            margin-top: 15px;
+        }
+        #in_wrap1{
+            width: 200px;
+            margin-left: 50px;
+        }
+        #in_wrap2{
+            width: 800px;
+            margin-left: 100px;
+        }
+        #in_wrap3{
+            width: 400px;
+            margin-left: 100px;
+        }
+        #wrap2{
+            width: 90%;
+            height: 500px;
+            background-color: yellow;
+            margin-top: 250px;
+            left: 50%;
+            position: relative;
+        }
+        .box_2{
+            width: 400px;
+            height: 300px;
+            background-color: purple;
+            position: absolute;
+        }
+        #wrap2_box1{
+            top: 120px;
+            left: 100px;
+        }
+        #wrap2_box2{
+            top: 5px;
+            left: 580px;
+        }
+        #wrap2_box3{
+            top: 195px;
+            left: 710px;
+            
+        }
+        #wrap2_box4{
+            top: 70px;
+            left: 1230px;
+        }
+    </style>
+    <script src="../jquery-ui.js"></script>
+    <script src="../jquery-3.6.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            let w_w=$(window).width();
+            let w_h=$(window).height();
+            let bg=["red","green"]
+
+            $(".out_box").css({
+                width: w_w,
+                height: w_h,
+                background:function(index){
+                    return bg[index]
+                }
+            })
+
+            $("#wrap1").css({
+                marginLeft:-(w_w*0.9)/2
+            })
+            $("#in_wrap").css({
+                marginLeft: -(w_w*0.9)/2
+            })
+            $("#wrap2").css({
+                marginLeft: -(w_w*0.9)/2
+            })
+        })
+    </script>
+</head>
+<body>
+    <section class="out_box">
+        <div id="inbox_1"></div>
+        <div id="inbox_2"></div>
+        <div id="in_wrap">
+            <div class="box_1" id="wrap_box1"></div>
+            <div class="box_1" id="wrap_box2"></div>
+            <div class="box_1" id="wrap_box3"></div>
+        </div>
+    </section>
+    <section class="out_box">
+        <div id="wrap1">
+            <div class="inwrap"id="in_wrap1"></div>
+            <div class="inwrap" id="in_wrap2"></div>
+            <div class="inwrap" id="in_wrap3"></div>
+        </div>
+
+        <div id="wrap2">
+            <div class="box_2" id="wrap2_box1"></div>
+            <div class="box_2" id="wrap2_box2"></div>
+            <div class="box_2" id="wrap2_box3"></div>
+            <div class="box_2" id="wrap2_box4"></div>
+        </div>
+    </section>
+</body>
+</html>
