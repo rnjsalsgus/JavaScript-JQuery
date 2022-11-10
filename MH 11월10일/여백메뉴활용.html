@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(251, 251, 251);
+        }
+#wrap{
+    width: 100%;
+    height: 100px;
+    background: black;
+    padding-top: 20PX;
+    box-sizing: border-box;
+    
+
+}
+#wrap.h_on{
+    height: 400px;
+}
+#menu_wrap{
+    width: 750px;
+    height: 80px;
+    margin: 0 auto;
+    background: rgb(72, 3, 81);
+    /* overflow: hidden; */
+    
+}
+
+.top_menu{
+width: 20%;
+height: 80px;
+text-align: center;
+float: left;
+line-height: 80px;
+}
+.top_menu:hover>a{
+    color: red;
+}
+#menu_wrap.menu_on{
+    width: 850px;
+    height: 350px;
+}
+
+.bottom_menu_wrap{
+    width: 100%;
+    height: 250px;
+    background: brown;
+    border-left: 1px solid black;
+    box-sizing: border-box;
+}
+.top_menu:last-child>.bottom_menu_wrap{
+    border-right: 1px solid black;;
+}
+.bottom_menu{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    transition: width 1s;
+}
+.bottom_menu:hover>a{
+    color: green;
+}
+    </style>
+    <script src="jquery-3.6.1.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+
+        $("#menu_wrap").hover(function(){
+                $(this).stop().addClass("menu_on",500);
+                $("#wrap").stop().addClass("h_on",500);
+                    },function(){
+                $(this).stop().removeClass("menu_on",500);
+                $("#wrap").stop().removeClass("h_on",500);
+                })
+
+
+        });//end
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <ul id="menu_wrap">
+            <li class="top_menu">
+                <a href="#">상위메뉴1</a>
+                <ul class="bottom_menu_wrap">
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴1</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴2</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴3</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴4</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴5</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="top_menu">
+                <a href="#">상위메뉴2</a>
+                <ul class="bottom_menu_wrap">
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴1</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴2</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴3</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴4</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴5</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="top_menu">
+                <a href="#">상위메뉴3</a>
+                <ul class="bottom_menu_wrap">
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴1</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴2</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴3</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴4</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴5</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="top_menu">
+                <a href="#">상위메뉴4</a>
+                <ul class="bottom_menu_wrap">
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴1</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴2</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴3</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴4</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴5</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="top_menu">
+                <a href="#">상위메뉴5</a>
+                <ul class="bottom_menu_wrap">
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴1</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴2</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴3</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴4</a>
+                    </li>
+                    <li class="bottom_menu">
+                        <a href="#">하위메뉴5</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
