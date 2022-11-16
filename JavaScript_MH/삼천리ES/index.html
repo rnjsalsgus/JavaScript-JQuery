@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        .out_page{
+            position: relative;
+            /* overflow: hidden; */
+        }
+        #img_page{
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+        .img_list{
+            float: left;
+        }
+        /* section_1 */
+        #menu_wrap{
+            width: 100%;
+            height: 100px;
+            /* background-color: yellow; */
+            position: relative;
+            border-bottom: 0.5px solid gray;
+        }
+        #logo{
+            width: 200px;
+            height: 100px;
+            font-size: 25px;
+            /* background-color: white; */
+            color: white;
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-align: center;
+            line-height: 100px;
+        }
+        #main_menu{
+            width: 750px;
+            height: 100px;
+            font-size: 18px;
+            /* background-color: aqua; */
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            line-height: 100px;
+            /* position: absolute;
+            left: 50%;
+            margin-left:-400px; */
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        #main_menu>li{
+            float: left;
+            width: 20%;
+        }
+        
+        #right_menu{
+            width: 200px;
+            height: 100px;
+            background-color: white;
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #right_menu>li:first-child{
+        height: 2.7142857143em;
+        color: #eee;
+        font-size: 0.875em;
+        border-radius: 1.3571428571em;
+        padding-left: 1.2857142857em;
+        padding-right: 1.2857142857em;
+        background-color: #0081e9;
+        text-align: center;
+        line-height: 2.7142857143em;
+        }
+        .sub_wrap{
+            width: 100%;
+            height: 300px;
+            background-color: white;
+        }
+        .sub_menu{
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            font-size: 15px;
+            color: black;
+            text-align: center;
+            transition: width 1s;
+        }
+        #text_wrap{
+            width: 800px;
+            height: 500px;
+            /* background-color: white; */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -250px;
+            margin-left: -400px;
+            color: white;
+        }
+        #text_gallery{
+            width: 800px;
+            height: 500px;
+            overflow: hidden;
+        }
+        #text_gallery>li{
+            width: 800px;
+            height: 500px;
+        }
+        #dot_wrap{
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            margin-left: -100px;
+            display: flex;
+            justify-content: space-between;
+        }
+        #dot_wrap>li{
+            width:25%;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+        }
+        .main_text{
+            font-size: 60px;
+            text-align: center;
+            margin-top: 180px;
+        }
+        .sub_text{
+            font-size: 20px;
+            text-align: center;
+            margin: 40px;
+        }
+        .but{
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            position: absolute;
+            text-align: center;
+            line-height: 100px;
+        }
+        #left_but{    
+            top: 50%;
+            margin-top:-50px;
+            left:0;
+        }
+        #right_but{
+            top: 50%;
+            margin-top: -50px;
+            right: 0;
+        }
+        #down_but{
+            left: 50%;
+            margin-left: -50px;
+            bottom: 0;
+        }
+        /* section_2 */
+        .section_2_text{
+            width: 200px;
+            font-size: 50px;
+            position: absolute;
+            left: 50%;
+            margin-left: -100px;
+            margin-top: 100px;
+        }
+
+        #section_2_wrap{
+            width: 100%;
+            height: 693.59px;
+            position: absolute;
+            top: 243.59px;
+            background-color: white;
+            overflow: hidden;
+            
+        }
+        .section_2_inwrap{
+            width: 1092px;
+            height: 481.59px;
+            background-color: bisque;
+            position:absolute;
+            left: 50%;
+            margin-left: -546px;
+            
+        }
+        .text_box{
+            width: 566.39px;
+            height: 433.59px;
+            background-color: pink;
+            border-top-left-radius: 100px;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        .img_box{
+            width: 571.5px;
+            height: 433.59px;
+            background-color: aqua;
+            border-top-left-radius: 100px;
+            border-bottom-right-radius: 100px;
+            position: absolute;
+            bottom: 0;
+            right: 45.89px;
+        }
+        #but_wrap{
+            position: absolute;
+            width: 300px;
+            height: 100px;
+            left: 50%;
+            margin-left: -150px;
+            bottom: 65px;
+            display: flex;
+        }
+        .section_2_but{
+            width: 100px;
+            height: 100px;
+            background-color: burlywood;
+        }
+        span{
+            width: 100px;
+            height: 100px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        /* section_3 */
+        #section_3_text{
+            height: 100px;
+            line-height: 100px;
+            margin-top: 200px;
+            position: absolute;
+            font-size: 50px;
+            left: 50%;
+        }
+        .section_3_outbox{
+            background-color: bisque;
+            position: absolute;
+            left: 50%;
+            top: 300px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .section_3_inwrap{
+            width: 48%;
+            background-color: white;
+        }
+        #name_text{
+            float: left;
+        }
+        .plus{
+            width: 40px;
+            height: 40px;
+            float: right;
+            background-color: blue;
+            color: white;
+            font-size: 40px;
+            border-radius: 50%;
+            line-height: 40px;
+        }
+        .inwrap_name{
+            width:100%;
+            margin-top:50px;
+        }
+        #section_3_outwrap_1{
+            width: 100%;
+            height: 400px;
+            margin-top: 100px;
+            background-color: aqua;
+            position: relative;
+            overflow: hidden;
+        }
+        #section_3_wrap_1{
+            width: 250%;
+            height: 100%;
+            background-color: skyblue;
+            position: absolute;
+            top: 0;
+            left: 0;          
+        }
+        .inwrap_box{
+            width: 19%;
+            height: 100%;
+            background-color: gray;
+            float: left;
+            margin-right: 1%;
+        }
+        .inwrap_box_img{
+            width:100%;
+            height: 50%;
+            background-color: aqua;
+        }
+        .inwrap_box_text{
+            width: 80%;
+            height: 50%;
+            background-color: chartreuse;
+            margin: 0 auto;
+        }
+        .section_3_butwrap{
+            width: 200px;
+            height: 100px;
+            background-color: black;
+        }
+        .section_3_but{
+            width: 100px;
+            height: 100px;
+            float: left;
+            background-color: aquamarine;
+        }
+        #section_3_outwrap_2{
+            width: 100%;
+            height: 400px;
+            background-color: fuchsia;
+            margin-top: 100px;
+            overflow: hidden;
+        }
+        #section_3_wrap_2{
+            width: 200%;
+            height: 100%;
+            background-color: aqua;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .section_3_wrap_textbox{
+             width: 24%;
+             height: 45%;
+             background-color: cornflowerblue;
+        }
+        /* section_4 */
+        section:nth-child(4){
+            padding-top: 100px;
+        }
+        #section_4_outwrap{
+            width: 100%;
+            height: 150px;
+            background-color: cadetblue;
+            display: flex;
+        }
+        .section_4_inbox{
+            width: 50%;
+            position: relative;
+        }
+        #inbox_1{
+            background-color: darkmagenta;
+        }
+        #inbox_text_1{
+            position: absolute;
+            height: 100px;
+            line-height: 100px;
+            color: white;
+            left: 200px;
+            top:50%;
+            margin-top: -50px
+        }
+        #inbox_left_but{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: white;
+            top: 50%;
+            margin-top: -50px;
+            right: 50px;
+        }
+        #inbox_text_2{
+            position: absolute;
+            color: white;
+            height: 100px;
+            line-height: 100px;
+            top: 50%;
+            margin-top: -50px;
+            left: 50px;
+        }
+        #inbox_right_but{
+            background-color: white;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50%;
+            margin-top: -50px;
+            right: 200px;
+        }
+        #section_4_wrap{
+            width: 80%;
+            height: 400px;
+            background-color: bisque;
+            margin:0 auto;
+            
+        }
+        #section_4_wrap_text_1{
+            font-size: 50px;
+        }
+        #textbox_1{
+            background-color: darkgreen;
+            float: left;
+            color: white;
+        }
+        #textbox_2{
+            background-color: chocolate;
+            float: right;
+            color: white;
+        }
+        .textbox_text_1{
+            position: absolute;
+            top: 40px;
+            left: 30px;
+        }
+        .textbox_img{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            top: 40px;
+            right: 40px;
+        }
+        .textbox_text_2{
+            position:absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        footer{
+            width: 100%;
+            background-color: black;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            padding-left: 250px;
+            padding-top: 50px;
+            box-sizing: border-box;
+        }
+        #footer_logo{
+            float: left;
+        }
+        #footer_text{
+            width: 450px;
+            height: 300px;
+            margin-left: 100px;
+        }
+        #footer_select{
+            float: right;
+        }
+        #main_menu.menu_on{
+            width: 900px;
+            height: 400px;
+        }
+        #menu_wrap.h_on{
+            height: 400px;
+            background-color: white;
+        }
+        #logo.logo_color{
+            color: #0081e9;
+        }
+        #main_menu>li>a.color{
+            color:black
+        }
+        
+        #main_menu>li>a.m_color{
+            color: #0081e9;
+        }
+    </style>
+    <script src="../jquery-3.6.1.js"></script>
+    <script src="../jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            let w_w=$(window).width();
+            let w_h=$(window).height();
+            let bg=["pink","yellow","green","blue"]
+            let img_bg=["url(../img/main_visual01.jpg)","url(../img/main_visual02.jpg)","url(../img/main_visual03.jpg)"]
+            
+            $(".out_page").css({
+                width: w_w,
+                height: w_h,
+                background:function(index){
+                    return bg[index];
+                }
+            })
+            $("#img_page").css({
+                width: w_w,
+                height:w_h
+            })
+            $("#img_wrap").css({
+                width: w_w*3,
+                height: w_h,
+                position:"absolute"
+            })
+            $(".img_list").css({
+                width: w_w,
+                height: w_h,
+                background:function(index){
+                    return img_bg[index]
+                },
+                backgroundSize:"100%",
+                backgroundRepeat: "no-repeat"
+            })
+            $("#section_3_text").css({
+                width: w_w*0.8,
+                marginLeft: -(w_w*0.8)/2
+            })
+            $(".section_3_outbox").css({
+                height: w_h-300,
+                width: w_w*0.8,
+                marginLeft: -(w_w*0.8)/2
+            })
+            $(".section_4_textbox").css({
+                width: w_w*0.8*0.49,
+                height: 250,
+                position: "relative"
+            })
+            $("#main_menu").hover(function(){
+                $("#main_menu>li>a").addClass("color")
+                $(this).addClass("menu_on",300)
+                $("#menu_wrap").addClass("h_on",300)
+                $("#logo").addClass("logo_color")
+            },function(){
+                $("#main_menu>li>a").removeClass("color")
+                $(this).removeClass("menu_on",300)
+                $("#menu_wrap").removeClass("h_on",300)
+                $("#logo").removeClass("logo_color")
+            })
+           $("#main_menu>li>a").hover(function(){
+                $(this).addClass("m_color")
+           },function(){
+                $(this).removeClass("m_color")   
+           })
+
+           var i=0;
+           $("#right_but").click(function(){
+                i++;
+                if(i>2){
+                    i=0;
+                }
+                $("#img_page").animate({
+                    scrollLeft: w_w*i
+                })
+            })
+             $("#left_but").click(function(){
+                i--;
+                if(i<0){
+                    i=2;
+                }
+                $("#img_page").animate({
+                    scrollLeft: w_w*i
+                })
+            })
+            $("#dot_wrap>li").click(function(){
+                i=$(this).index
+                $("#img_page").animate({
+                    scrollLeft: w_w*i
+                })
+            })
+
+
+
+
+
+        })//
+    </script>
+</head>
+<body>
+       <section class="out_page">
+        <div id="img_page">
+            <ul id="img_wrap">
+                <li class="img_list"></li>
+                <li class="img_list"></li>
+                <li class="img_list"></li>
+            </ul>
+        </div>
+    
+        <nav id="menu_wrap">
+            <h1 id="logo">삼천리ES</h1>
+            <ul id="main_menu">
+                <li>
+                    <a href="#">기업소개</a>
+                    <ul class="sub_wrap">
+                        <li class="sub_menu">CEO 인사말</li>
+                        <li class="sub_menu">주요연혁</li>
+                        <li class="sub_menu">비전</li>
+                        <li class="sub_menu">CI</li>
+                        <li class="sub_menu">그룹소개</li>
+                        <li class="sub_menu">오시는 길</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">사업분야</a>
+                    <ul class="sub_wrap">
+                        <li class="sub_menu">연료전지사업 +</li>
+                        <li class="sub_menu">공조사업 +</li>
+                        <li class="sub_menu">고효율시스템사업 +</li>
+                        <li class="sub_menu">수소사업</li>
+                        <li class="sub_menu">신재생에너지사업 +</li>
+                        <li class="sub_menu">자원순환사업 +</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">고객서비스</a>
+                    <ul class="sub_wrap">
+                        <li class="sub_menu">고객센터</li>
+                        <li class="sub_menu">A/S 문의</li>
+                        <li class="sub_menu">자주 묻는 질문</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">홍보센터</a>
+                    <ul class="sub_wrap">
+                        <li class="sub_menu">뉴스룸 +</li>
+                        <li class="sub_menu">홍보자료 +</li>
+                        <li class="sub_menu">투자정보 +</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">인재채용</a>
+                    <ul class="sub_wrap">
+                        <li class="sub_menu">인사제도</li>
+                        <li class="sub_menu">인사채용 +</li>
+                    </ul>
+                </li>
+            </ul>
+            <ul id="right_menu">
+                <li>Smart Link↗</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </nav>        
+             <nav id="text_wrap">
+                <ul id="text_gallery">
+                    <li>
+                        <h1 class="main_text">삼천리ES가 만드는<br>새로운 가치</h1>
+                        <p class="sub_text">우리의 융복합 기술로 에너지 환경 분야의<br>새로운 비즈니스 모델을 제시합니다</p>
+                    </li>
+                    <li>
+                        <h1 class="main_text">에너지·환경 분야의<br>토탈 솔루션 기업</h1>
+                        <p class="sub_text">사업개발, 설계, 구매, 시공, 운영 및 사후관리까지,
+                            <br>삼천리ES는 에너지·환경 분야 Total Solution을 제공합니다.
+                        </p>
+                    </li>
+                    <li>
+                        <h1 class="main_text">따뜻한 사회, 안전한 세상,<br>행복한 미래를 만들어 갑니다.</h1>
+                        <p class="sub_text">고객과 지역사회의 보내주신 사랑에 보답하고<br>
+                        국민에게 진정으로 '사랑받는 기업'이 되고자 최선을 다하겠습니다.</p>
+                    </li>
+                </ul>
+
+                <ul id="dot_wrap">
+                    <li>·</li>
+                    <li>·</li>
+                    <li>·</li>
+                    <li>||</li>
+                </ul>
+             </nav>
+
+             <h1 class="but" id="left_but">&lt;</h1>
+             <h1 class="but" id="right_but">&gt;</h1>
+             <h1 class="but" id="down_but"></h1>
+       </section> 
+       <section class="out_page">
+            <h1 class="section_2_text">사업분야</h1>
+
+            <div id="section_2_wrap">
+                <div class="section_2_inwrap">
+                    <div class="text_box"></div>
+                    <div class="img_box"></div>
+                </div>    
+                <div class="section_2_inwrap">
+                    <div class="text_box"></div>
+                    <div class="img_box"></div>
+                </div>
+                <div class="section_2_inwrap">
+                    <div class="text_box"></div>
+                    <div class="img_box"></div>
+                </div>    
+                <div class="section_2_inwrap">
+                    <div class="text_box"></div>
+                    <div class="img_box"></div>
+                </div>    
+                <div class="section_2_inwrap">
+                    <div class="text_box"></div>
+                    <div class="img_box"></div>
+                </div>    
+                <div class="section_2_inwrap">
+                    <div class="text_box"></div>
+                    <div class="img_box"></div>
+                </div>        
+
+                <div id="but_wrap">
+                    <h1 class="section_2_but" id="section_2_leftbut"></h1>
+                    <span>1/6</span>
+                    <h1 class="section_2_but" id="section_2_rightbut"></h1>
+                </div>
+                
+            </div>
+       </section> 
+       <section class="out_page">
+            <h1 id="section_3_text">Newsroom</h1>
+
+            <div class="section_3_outbox">
+                <div class="section_3_inwrap">
+                    <div class="inwrap_name">
+                        <h1 id="name_text">사내기사</h1>
+                        <h1 class="plus">+</h1>
+                    </div>
+    
+                    <div id="section_3_outwrap_1">
+                        <div id="section_3_wrap_1">
+                            <div class="inwrap_box">
+                                <div class="inwrap_box_img"></div>
+                                <div class="inwrap_box_text"></div>
+                            </div>
+                            <div class="inwrap_box">
+                                <div class="inwrap_box_img"></div>
+                                <div class="inwrap_box_text"></div>
+                            </div>
+                            <div class="inwrap_box">
+                                <div class="inwrap_box_img"></div>
+                                <div class="inwrap_box_text"></div>
+                            </div>
+                            <div class="inwrap_box">
+                                <div class="inwrap_box_img"></div>
+                                <div class="inwrap_box_text"></div>
+                            </div>
+                            <div class="inwrap_box">
+                                <div class="inwrap_box_img"></div>
+                                <div class="inwrap_box_text"></div>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <div class="section_3_butwrap">
+                        <h1 class="section_3_but"></h1>
+                        <h1 class="section_3_but"></h1>
+                    </div>
+                    
+                </div>
+                <div class="section_3_inwrap">
+                    <div class="inwrap_name">
+                        <h1 id="name_text">사외기사</h1>
+                        <h1 class="plus">+</h1>
+                    </div>
+    
+                    <div id="section_3_outwrap_2">
+                        <div id="section_3_wrap_2">
+                            <div class="section_3_wrap_textbox"></div>
+                            <div class="section_3_wrap_textbox"></div>
+                            <div class="section_3_wrap_textbox"></div>
+                            <div class="section_3_wrap_textbox"></div>
+                            <div class="section_3_wrap_textbox"></div>
+                            <div class="section_3_wrap_textbox"></div>
+                            <div class="section_3_wrap_textbox"></div>
+                            <div class="section_3_wrap_textbox"></div>
+                        </div>
+                    </div>
+    
+                    <div class="section_3_butwrap">
+                        <h1 class="section_3_but"></h1>
+                        <h1 class="section_3_but"></h1>
+                    </div>
+                </div>
+            </div>          
+       </section> 
+       <section class="out_page">
+            <div id="section_4_outwrap">
+                <div class="section_4_inbox" id="inbox_1">
+                    <h1 id="inbox_text_1">재무정보</h1>
+                    <h1 id="inbox_left_but"></h1>
+                </div>
+                <div class="section_4_inbox" id="inbox">
+                    <h1 id="inbox_text_2">홍보자료</h1>
+                    <h1 id="inbox_right_but"></h1>
+                </div>
+            </div>
+            
+            <div id="section_4_wrap">
+                <h1 id="section_4_wrap_text_1">인재채용</h1>
+                <h1 id="section_4_wrap_text_2">삼천리인은 '사랑'을 품은 열정인입니다.</h1>
+
+                <div class="section_4_textbox" id="textbox_1">
+                    <h1 class="textbox_text_1">인재상</h1>
+                    <h1 class="textbox_img"></h1>
+                    <p class="textbox_text_2">삼천리ES가 생각하는 '사랑'과 '열정'은 무엇일까요?</p>
+                </div>
+
+                <div class="section_4_textbox" id="textbox_2">
+                    <h1 class="textbox_text">인재육성</h1>
+                    <h1 class="textbox_img"></h1>
+                    <p class="textbox_text_2">삼천리ES는 체계적인 인재양성 시스템을 운용하고 있습니다.</p>
+                </div>
+            </div>
+
+            <footer>
+                <h1 id="footer_logo">logo</h1>
+                <div id="footer_text">
+                    <p>개인정보 처리방침ㆍ이메일무단수집거부</p>
+                    <br>
+                    <br>
+                    <p>서울특별시 영등포구 국제금융로6길 42 (여의도동) 삼천리ES</p>
+                    <br>
+                    <p>TEL&nbsp;&nbsp;02-368-3368&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fax&nbsp;&nbsp;02-783-4873</p>
+                    <br><br>
+                    <p>Copyright © 2022 SAMCHULLY ES All Right Reserved.</p>
+                    <br>
+                </div>
+
+                <select id="footer_select">
+                    <option>Family Site</option>
+                    <option>삼천리</option>
+                    <option>ST International</option>
+                    <option>(주)삼천리ENG</option>
+                    <option>(주)HUCES</option>
+                    <option>(주)SL&C(CHai797)</option>
+                    <option>삼천리 모터스</option>
+                    <option>천만장학회</option>
+                </select>
+
+            </footer>
+       </section> 
+</body>
+</html>
