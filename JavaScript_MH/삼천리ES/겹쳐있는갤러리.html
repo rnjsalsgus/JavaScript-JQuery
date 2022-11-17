@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+#mask_wrap{
+    width: 800px;
+    height: 800px;
+    border: 10px solid black;
+    position: relative;
+    margin: 50px auto;
+}
+#mask_wrap>ul, #mask_wrap>h1,.img_con,.text_con,.arrow_but{
+    position: absolute;
+}
+#img_wrap{
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+    top:0;
+    left: 0;
+}
+.img_con{
+    width: 300%;
+    height: 300%;
+    top:0;
+    left: 0;
+    /* display: none; */
+    
+}
+
+.img_con:first-child{
+    display: block;
+    width: 100%;
+    height: 100%;
+   
+}
+
+#text_wrap{
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    top:50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+    background: wheat;
+}
+.text_con{
+    width: 100%;
+    height: 100%;
+    top:300px;
+    left: 0;
+    text-align: center;
+    font-size: 30px;
+   
+}
+.text_con:first-child{
+    top:0;
+   
+}
+#point_wrap{
+    width: 300px;
+    height: 50px;
+    background: black;
+    left: 50%;
+    top:100px;
+    margin-left: -150px; 
+}
+.point_but,.stop_but{
+    width: 50px;
+    height: 50px;
+    float: left;
+    border-radius: 25px;
+    margin-left: 20px;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+}
+.point_but.point_on{
+    background: rgba(255, 255, 255, 0.5);
+}
+.arrow_but{
+    width: 80px;
+    height: 80px;
+    background: wheat;
+    top:50%;
+    margin-top: -40px;
+    font-size: 80px;
+    line-height: 80px;
+    text-align: center;
+
+}
+#left_but{
+    left: 0;
+}
+#right_but{
+    right: 0;
+    
+}
+    </style>
+    <script src="../jquery-3.6.1.js"></script>
+    <script src="../jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            let img_bg=["url(img/1.jpg)","url(img/2.jpg)","url(img/3.jpg)"];
+            $(".img_con").css({
+                background:function(index){
+                    return img_bg[index];
+                },
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "100%"
+            })
+
+            let p_1_click=0;
+            $("#right_but").click(function(){
+                
+                $('.point_but').removeClass("point_on",500);
+                $('.text_con').eq(p_1_click).animate({
+                    opacity:0
+                },500,function(){
+                    $(this).css({
+                        top:300,
+                        opacity:1
+                    })
+                });
+                $(".img_con").eq(p_1_click).fadeOut(500).animate({
+                    width:"300%",
+                    height:"300%"
+                },1000);
+                p_1_click++;
+                if(p_1_click>2){
+                    p_1_click=0;
+                }
+                $(".img_con").eq(p_1_click).fadeIn(500).animate({
+                    width:"100%",
+                    height:"100%"
+                },1000);
+                $('.point_but').eq(p_1_click).addClass("point_on",500);
+                $('.text_con').eq(p_1_click).animate({
+                    top:0
+                },500);
+            })
+
+            $("#left_but").click(function(){
+                
+                $('.point_but').removeClass("point_on",500);
+                $('.text_con').eq(p_1_click).animate({
+                    opacity:0
+                },500,function(){
+                    $(this).css({
+                        top:300,
+                        opacity:1
+                    })
+                });
+                $(".img_con").eq(p_1_click).fadeOut(500).animate({
+                    width:"300%",
+                    height:"300%"
+                },1000);
+                p_1_click--;
+                if(p_1_click<0){
+                    p_1_click=2;
+                   
+                }
+                $(".img_con").eq(p_1_click).fadeIn(500).animate({
+                    width:"100%",
+                    height:"100%"
+                },1000);
+                $('.point_but').eq(p_1_click).addClass("point_on",500);
+                $('.text_con').eq(p_1_click).animate({
+                    top:0
+                },500);
+
+
+            })
+
+            
+
+            $('.point_but').click(function(){
+                
+                p_1_click=$(this).index();
+                $('.point_but').removeClass("point_on",500).eq(p_1_click).addClass("point_on",500);;
+                $('.text_con').animate({
+                    opacity:0
+                },500,function(){
+                    $(this).css({
+                        top:300,
+                        opacity:1
+                    })
+                }).eq(p_1_click).animate({
+                    top:0
+                },500);;
+                $(".img_con").fadeOut(500).animate({
+                    width:"300%",
+                    height:"300%"
+                },1000).eq(p_1_click).fadeIn(500).animate({
+                    width:"100%",
+                    height:"100%"
+                },1000);
+               
+               
+            })
+
+
+
+            // let auto_main_g=setInterval(function(){
+            //     $("#right_but").stop().trigger("click");
+            // },3000)
+
+            let ani_click_num=0;
+            $("#ani_stop").click(function(){
+                
+                if(ani_click_num==0){
+                    $(this).text("▶");
+                   // clearInterval(auto_main_g);
+                    ani_click_num++;
+                }else{
+                    $(this).text("||");
+            //         auto_main_g=setInterval(function(){
+            //         $("#right_but").stop().trigger("click");
+            // },3000)
+            ani_click_num--;
+
+                }
+               
+            });
+
+
+           
+
+        });//end
+    </script>
+</head>
+<body>
+    <div id="mask_wrap">
+        <ul id="img_wrap">
+            <li class="img_con"></li>
+            <li class="img_con"></li>
+            <li class="img_con"></li>
+        </ul>
+        <ul id="text_wrap">
+            <li class="text_con">이미지1번 주저리 주저리</li>
+            <li class="text_con">이미지2번 2번 2번 어쩌고</li>
+            <li class="text_con">이미지3번 어쩌고 져쩌고</li>
+        </ul>
+        <ul id="point_wrap">
+            <li class="point_but point_on">●</li>
+            <li class="point_but">●</li>
+            <li class="point_but">●</li>
+            <li class="stop_but" id="ani_stop">||</li>
+        </ul>
+        <h1 class="arrow_but" id="left_but">&lt;</h1>
+        <h1 class="arrow_but" id="right_but">&gt;</h1>
+    </div>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+       
+        #mask_wrap{
+            width: 1400px;
+            height: 700px;
+            border: 10px solid black;
+            position: relative;
+            margin: 50px auto;
+            overflow: hidden; 
+        }
+       
+        #img_wrap{
+            width: 4200px;
+            height: 600px;
+            position: absolute;
+            top:0;
+            left: -500px;
+            display: flex;
+            background: yellow;
+        }
+        .img_con{
+            width: 600px;
+            height: 400px;
+            position: relative;
+            margin-top:100px;
+            margin-left: 100px;
+            overflow: hidden;
+            background: white;
+        }
+        .img_con:first-child{
+            margin-top:0;
+            margin-left: 100px;
+        }
+        .img_con:nth-child(2){
+            width: 900px;
+            height: 600px;
+            margin-top:0;
+
+        }
+        .img_con:nth-child(3){
+
+            margin-top:200px;
+
+        }
+
+
+.in_box{
+  position: absolute;
+  width: 600px;
+  height: 400px;
+}
+.top_box{
+  background: black;
+  top:0;
+  left: 0;
+}
+.bot_box{
+  background: red;
+  bottom: 0;
+  right: 0;
+}
+ #but_wrap{
+      width: 200px;
+      height: 50px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      margin-left: -75px;
+      background: aqua;
+    }
+.but{
+  width: 50px;
+  height: 50px;
+  float: left;
+  font-size: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+.but:nth-child(2){
+  width: 100px;
+  font-size: 20px;
+ 
+}
+
+
+
+
+
+
+
+
+
+
+    </style>
+    <script src="jquery-3.6.1.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+          
+          //let bg=["red","blue","pink","aqua","brown","darkorange"];
+            $(".img_con").css({
+                // background:function(index){
+                //     return bg[index];
+                // },
+              
+            })
+          
+let int_text_num=1;
+            $("#left_but").click(function(){
+              
+            int_text_num--;
+           
+            if(int_text_num<=0){
+              int_text_num=6;
+            }
+            $("#int_text").text(int_text_num);
+              $(".img_con").css({
+                      marginTop:100,
+                      width:600,
+                      height:400
+                    })
+
+              $(".img_con").last().prependTo("#img_wrap");
+              $("#img_wrap").css({
+                  left:-1200
+              }).animate({
+                  left:-500
+              },1000,function(){
+
+                $(".img_con").eq(1).stop().animate({
+                    width:900,
+                    height:600,
+                    marginTop:0
+                  },500);
+                
+           
+                  $(".img_con").eq(2).animate({
+                    marginTop:200
+                  },500);
+
+                  $(".img_con").first().animate({
+                      marginTop:0,
+                      width:600,
+                      height:400
+                    },500)
+
+
+              })
+
+            });
+
+            $("#right_but").click(function(){
+              int_text_num++;
+              if(int_text_num>6){
+              int_text_num=1;
+            }
+              $("#int_text").text(int_text_num);
+
+
+              $(".img_con").css({
+                      marginTop:100,
+                      width:600,
+                      height:400
+                    })
+
+              $("#img_wrap").animate({
+                left:-1200,
+              },500,function(){        
+                  $(".img_con").first().appendTo("#img_wrap");
+                  $("#img_wrap").css({
+                    left:-500
+                  })
+               
+                  $(".img_con").eq(1).stop().animate({
+                    width:900,
+                    height:600,
+                    marginTop:0
+                  },500);
+                
+           
+                  $(".img_con").eq(2).animate({
+                    marginTop:200
+                  },500);
+
+                  $(".img_con").first().animate({
+                      marginTop:0,
+                      width:600,
+                      height:400
+                    },500)
+
+                  });
+             });
+
+            
+
+
+
+
+
+
+
+
+
+
+        });//end
+    </script>
+</head>
+<body>
+  <div id="mask_wrap">
+    <ul id="img_wrap">
+        <li class="img_con">
+          <div class="in_box top_box">위로1</div>
+          <div class="in_box bot_box">아래1</div>
+        </li>
+        <li class="img_con">
+          <div class="in_box top_box">위로2</div>
+          <div class="in_box bot_box">아래2</div>
+        </li>
+        <li class="img_con">
+          <div class="in_box top_box">위로3</div>
+          <div class="in_box bot_box">아래3</div>
+        </li>
+        <li class="img_con">
+          <div class="in_box top_box">위로4</div>
+          <div class="in_box bot_box">아래4</div>
+        </li>
+        <li class="img_con">
+          <div class="in_box top_box">위로5</div>
+          <div class="in_box bot_box">아래5</div>
+        </li>
+        <li class="img_con">
+          <div class="in_box top_box">위로6</div>
+          <div class="in_box bot_box">아래6</div>
+        </li>
+    </ul>
+   
+    <ul id="but_wrap">
+        <li class="arrow_but but" id="left_but">&lt;</li>
+        <li class="point_but but">0<span id="int_text">1</span> / 06</li>
+        <li class="arrow_but but" id="right_but">&gt;</li>
+    </ul>
+  
+</div>
+
+</body>
+</html>
