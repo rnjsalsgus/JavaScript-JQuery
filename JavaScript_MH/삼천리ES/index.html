@@ -236,45 +236,60 @@
         }
 
         #section_2_wrap{
-            height: 730px;
+            height: 750px;
             position: absolute;
             top: 190px;
             background-color: white;
-            /* overflow: hidden; */
+            overflow: hidden;
             
         }
         #section_2_outwrap{
             height: 630px;
-            background-color: aquamarine;
+            /* background-color: aquamarine; */
             position: absolute;
-            /* left: -600px; */
+            left: -600px;
             display: flex;
             }
         .section_2_inwrap{
-            /* width: 1092px;
-            height: 481.59px; */
             width: 750px;
             height: 540px;
-            background-color: bisque;
             position: relative;
             margin-left: 100px;
             margin-top: 90px;
-            /* overflow: hidden; */
-
         }
         .text_box{
             width: 750px;
             height: 540px;
-            background-color: pink;
+            background-color: #002453;
             border-top-left-radius: 100px;
+            border-bottom-right-radius: 100px;
             position: absolute;
             top:0;
             left:0;
         }
+        .section_2_text_2{
+            width: 400px;
+            height: 400px;
+            color: white;
+            position: relative;
+            top: 70px;
+            left: 50px;
+        }
+        .section_2_text_2>h1{
+            font-size: 50px;
+        }
+        .section_2_text_2>p{
+            font-size: 20px;
+            margin-top: 80px;
+            position: absolute;
+        }
+        .section_2_text_2>p:last-child{
+            position: absolute;
+            bottom: 0px;
+        }
         .img_box{
             width: 750px;
             height: 540px;
-            background-color: aqua;
             border-top-left-radius: 100px;
             border-bottom-right-radius: 100px;
             position: absolute;
@@ -305,11 +320,7 @@
         .section_2_inwrap:first-child{
             margin-top:0;
         }
-        .section_2_inwrap:nth-child(2){
-            width: 1200px;
-            height: 600px;
-            margin-top:0;
-        }
+
         /* section_3 */
         #section_3_text{
             height: 100px;
@@ -572,7 +583,6 @@
                 background:function(index){
                     return img_bg[index]
                 },
-                // backgroundSize:"100%",
                 backgroundRepeat: "no-repeat"
             })
             $("#section_3_text").css({
@@ -649,6 +659,12 @@
             $("#down_but").click(function(){
                 $("html,body").animate({
                     scrollTop: w_h
+                },function(){
+                    $(".section_2_inwrap").eq(1).animate({
+                        width: 1200,
+                        height: 600,
+                        marginTop:0
+                    },700)
                 })
             })
             $(".out_li_3").hover(function(){
@@ -660,29 +676,77 @@
                     width: "35px"
                 })
             })
+            //section_2
             $("#section_2_wrap").css({
-                width: w_w
+                width: w_w,
             })
             $("#section_2_outwrap").css({
                 width: w_w*3
             })
-            
+            let img_bg_2=["url(../img/business_img06.jpg)","url(../img/business_img01.jpg)","url(../img/business_img02.jpg)","url(../img/business_img03.jpg)","url(../img/business_img04.jpg)","url(../img/business_img05.jpg)"]
+            $(".img_box").css({
+                background:function(index){
+                    return img_bg_2[index]
+                }
+            })
+            let int_text_num=1;
             $("#section_2_rightbut").click(function(){
-                $(".text_box.css").css({
-                    opacity: 0
-                })
+                int_text_num++;
+                if(int_text_num>6){
+                    int_text_num=1;
+                }
+                $("#int_text").text(int_text_num);
+
                 $(".section_2_inwrap").animate({
                     width: 750,
                     height: 540
                 })
                 $("#section_2_outwrap").animate({
-                    left: -850
+                    left: -1450
                 },1000,function(){
-                    $(".section_2_inwrap").first().appendTo("#section_2_outwrap")
-                    
+                    $(".section_2_inwrap").eq(2).animate({
+                    width: 1200,
+                    height: 600,
+                    marginTop:0
+                },700,function(){
+                    $(".section_2_inwrap").eq(3).css({
+                        marginTop: 90
+                    })
                 })
-            
-            
+                    $(".section_2_inwrap").first().appendTo("#section_2_outwrap")
+                    $("#section_2_outwrap").css({
+                        left: -600
+                    })
+                })
+            })
+
+            $("#section_2_leftbut").click(function(){
+                int_text_num--;
+                if(int_text_num<1){
+                    int_text_num=6
+                }
+                $("#int_text").text(int_text_num)
+                $(".section_2_inwrap").animate({
+                    width: 750,
+                    height: 540,
+                    marginTop: 90
+                })
+                $(".section_2_inwrap").last().prependTo("#section_2_outwrap")
+                $("#section_2_outwrap").css({
+                    left: -1450
+                })
+                $("#section_2_outwrap").animate({
+                    left: -600
+                },1000,function(){
+                    $(".section_2_inwrap").eq(1).animate({
+                        width: 1200,
+                        height: 600,
+                        marginTop: 0
+                    },700)
+                    $(".section_2_inwrap").first().animate({
+                        marginTop: 0
+                    })
+                })
             })
 
         })//
@@ -796,34 +860,82 @@
             <div id="section_2_wrap">
                 <div id="section_2_outwrap">
                     <div class="section_2_inwrap">
-                        <div class="text_box"></div>
+                        <div class="text_box">
+                            <div class="section_2_text_2">
+                                <h1>자원순환사업</h1>
+                                <p>폐자원 및 폐기물을 새로운 에너지로 재생하는 친환경사업으로 온실가스를
+                                    저감하고 지구온난화 억제에 기여하고 있습니다.
+                                </p>
+                                <p>자세히 보기→</p>
+                            </div>
+                        </div>
                         <div class="img_box"></div>
                     </div>    
                     <div class="section_2_inwrap">
-                        <div class="text_box">1</div>
-                        <div class="img_box">2</div>
+                        <div class="text_box">
+                            <div class="section_2_text_2">
+                                <h1>연료전지사업</h1>
+                                <p>우수한 자체 시공 및 엔지니어링 기술력을 바탕으로 국내
+                                    최대연료 전지 시공 누적 실적을 보유하고 있으며, 앞으로도
+                                    연료전지 전문 기업으로서 위상을 지켜나갈 것입니다.
+                                </p>
+                                <p>자세히 보기→</p>
+                            </div>
+                        </div>
+                        <div class="img_box"></div>
                     </div>
                     <div class="section_2_inwrap">
-                        <div class="text_box"></div>
+                        <div class="text_box">
+                            <div class="section_2_text_2">
+                                <h1>공조사업</h1>
+                                <p>HP 선도기업에서 복합공조 선도기업으로 가스엔진식 GHP부터
+                                    전기구동식 EHP까지, 경제적이고 쾌적한 냉난방 솔루션을 제공합니다.</p>
+                                <p>자세히 보기→</p>
+                            </div>
+                        </div>
                         <div class="img_box"></div>
                     </div>    
                     <div class="section_2_inwrap">
-                        <div class="text_box"></div>
+                        <div class="text_box">
+                            <div class="section_2_text_2">
+                                <h1>고효율 시스템 사업</h1>
+                                <p>고객의 Needs를 만족시킬 최적의 에너지 솔루션을 제공합니다.</p>
+                                <p>자세히 보기→</p>
+                            </div>
+                        </div>
                         <div class="img_box"></div>
                     </div>    
                     <div class="section_2_inwrap">
-                        <div class="text_box"></div>
+                        <div class="text_box">
+                            <div class="section_2_text_2">
+                                <h1>수소사업</h1>
+                                <p>세계 굴지의 친환경 설비업체와 제휴하여 수소를 활용한 용복합
+                                    사업 개발을 통해 수소사업 신규 진입 및 사업 확대를 추진할 계획입니다.
+                                </p>
+                                <p>자세히 보기→</p>
+                            </div>
+                        </div>
                         <div class="img_box"></div>
                     </div>    
                     <div class="section_2_inwrap">
-                        <div class="text_box"></div>
+                        <div class="text_box">
+                            <div class="section_2_text_2">
+                                <h1>신재생에너지사업</h1>
+                                <p>에너지 패러다임을 전환하고 탄소 중립을 실현하기 위해 신재생에너지사업을
+                                    지속 확대해 나갈 계획입니다.
+                                </p>
+                                <p>자세히 보기→</p>
+                            </div>
+                        </div>
                         <div class="img_box"></div>
                     </div>
                 </div>        
 
                 <div id="but_wrap">
                     <h1 class="section_2_but" id="section_2_leftbut"></h1>
-                    <span>1/6</span>
+                    <span>0
+                        <span id="int_text">1</span> / 06
+                    </span>
                     <h1 class="section_2_but" id="section_2_rightbut"></h1>
                 </div>
                 
